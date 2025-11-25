@@ -134,3 +134,11 @@
     color: var(--foreground);
   }
 }
+
+@layer utilities {
+  .bg-marble {
+    background-image: var(--background-surface);
+    background-size: cover;
+    background-position: center;
+  }
+}
