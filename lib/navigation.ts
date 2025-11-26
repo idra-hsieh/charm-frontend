@@ -15,7 +15,7 @@ export const mainNavItems: NavItem[] = [
   { label: "Money Identity Test", href: "/cmi-test" },
   { label: "Money Identities", href: "/money-identities" },
   { label: "Resources", href: "/resources" },
-  { label: "Charm App", href: "/app" },
+  { label: "Charm App", href: "/about" },
 ];
 
 export const utilityNavItems: NavItem[] = [
@@ -37,7 +37,7 @@ export const footerSections: FooterSection[] = [
     title: "Tools",
     items: [
       { label: "Charm Indicator", href: "/cmi-test" },
-      { label: "Daily Companion", href: "/app" },
+      { label: "Daily Companion", href: "/about" },
       { label: "Reflection Prompts", href: "/resources/prompts" },
     ],
   },
