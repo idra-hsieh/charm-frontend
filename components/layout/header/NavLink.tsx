@@ -23,7 +23,42 @@ function NavLink({ item, exact = false, className, onClick }: NavLinkProps) {
 
   const baseClasses = "text-sm font-semibold transition-colors duration-150";
 
-  const activeClasses = "bg-accent text-background";
+  const activeClasses =
+    "bg-accent text-background rounded-full px-5 py-2 shadow-md";
+
+  const inactiveClasses = "text-foreground hover:text-accent";
+
+  // external links: <a> + new tab
+
+  if (item.external) {
+    return (
+      <a
+        href={item.href}
+        target="_blank"
+        rel="noreferrer"
+        onClick={onClick}
+        className={cn(baseClasses, inactiveClasses, className)}
+      >
+        {item.label}
+      </a>
+    );
+  }
+
+  // internal links: next/link
+  return (
+    <Link
+      href={item.href}
+      aria-current={isActive ? "page" : undefined}
+      onClick={onClick}
+      className={cn(
+        baseClasses,
+        isActive ? activeClasses : inactiveClasses,
+        className
+      )}
+    >
+      {item.label}
+    </Link>
+  );
 }
 
 export default NavLink;
