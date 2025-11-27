@@ -1,0 +1,12 @@
+{
+  "main": {
+    "money_identity_test": "Money Identity Test",
+    "money_identities": "Money Identities",
+    "resources": "Resources",
+    "charm_app": "Charm App"
+  },
+  "utility": {
+    "login": "Log In",
+    "signup": "Try Charm for Free"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "learn": {
+    "title": "Learn",
+    "cmi_framework": "CMI Framework",
+    "money_identities": "Money Identities",
+    "articles_guides": "Articles & Guides"
+  },
+  "tools": {
+    "title": "Tools",
+    "charm_indicator": "Charm Indicator",
+    "daily_companion": "Daily Companion",
+    "reflection_prompts": "Reflection Prompts"
+  },
+  "support": {
+    "title": "Support",
+    "contact": "Contact Us",
+    "faq": "FAQ",
+    "tutorial": "Tutorial"
+  },
+  "company": {
+    "title": "Company",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "accessibility": "Accessibility"
+  }
+}

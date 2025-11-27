@@ -7,6 +7,7 @@ import type { NavItem } from "@/lib/navigation";
 
 type NavLinkProps = {
   item: NavItem;
+  label: string;
   exact?: boolean;
   className?: string;
   onClick?: () => void;
@@ -14,6 +15,7 @@ type NavLinkProps = {
 
 function NavLink({
   item,
+  label,
   exact = false,
   className = "",
   onClick,
@@ -45,7 +47,7 @@ function NavLink({
         onClick={onClick}
         className={cn(baseClasses, inactiveClasses, className)}
       >
-        {item.label}
+        {item.labelKey}
       </a>
     );
   }
@@ -62,7 +64,7 @@ function NavLink({
         className
       )}
     >
-      {item.label}
+      {item.labelKey}
     </Link>
   );
 }

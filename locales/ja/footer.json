@@ -1,0 +1,26 @@
+{
+  "learn": {
+    "title": "学ぶ",
+    "cmi_framework": "CMI フレームワーク",
+    "money_identities": "マネータイプ",
+    "articles_guides": "記事 & ガイド"
+  },
+  "tools": {
+    "title": "ツール",
+    "charm_indicator": "Charm インジケーター",
+    "daily_companion": "毎日のコンパニオン",
+    "reflection_prompts": "振り返りプロンプト"
+  },
+  "support": {
+    "title": "サポート",
+    "contact": "お問い合わせ",
+    "faq": "よくある質問",
+    "tutorial": "チュートリアル"
+  },
+  "company": {
+    "title": "会社情報",
+    "terms": "利用規約",
+    "privacy": "プライバシーポリシー",
+    "accessibility": "アクセシビリティ"
+  }
+}

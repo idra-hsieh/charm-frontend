@@ -1,0 +1,12 @@
+{
+  "main": {
+    "money_identity_test": "マネーアイデンティティ診断",
+    "money_identities": "マネータイプ一覧",
+    "resources": "リソース",
+    "charm_app": "Charm アプリ"
+  },
+  "utility": {
+    "login": "ログイン",
+    "signup": "Charm を無料で試す"
+  }
+}

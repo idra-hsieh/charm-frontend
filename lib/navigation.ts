@@ -1,60 +1,62 @@
 // types
 export type NavItem = {
-  label: string;
+  labelKey: string;
   href: string;
   external?: boolean;
 };
 
 export type FooterSection = {
-  title: string;
+  titleKey: string;
   items: NavItem[];
 };
 
-// Header Nav
+// Header: Main Nav (header → main)
 export const mainNavItems: NavItem[] = [
-  { label: "Money Identity Test", href: "/cmi-test" },
-  { label: "Money Identities", href: "/money-identities" },
-  { label: "Resources", href: "/resources" },
-  { label: "Charm App", href: "/about" },
+  { labelKey: "main.money_identity_test", href: "/cmi-test" },
+  { labelKey: "main.money_identities", href: "/money-identities" },
+  { labelKey: "main.resources", href: "/resources" },
+  { labelKey: "main.charm_app", href: "/about" },
 ];
 
+// Header: Utility Nav (header → utility)
+
 export const utilityNavItems: NavItem[] = [
-  { label: "Log In", href: "/login" },
-  { label: "Try Charm for Free", href: "/signup" },
+  { labelKey: "utility.login", href: "/login" },
+  { labelKey: "utility.signup", href: "/signup" },
 ];
 
 // Footer Nav
 export const footerSections: FooterSection[] = [
   {
-    title: "Learn",
+    titleKey: "learn.title",
     items: [
-      { label: "CMI Framework", href: "/money-framework" },
-      { label: "Money Identities", href: "/money-identities" },
-      { label: "Articles & Guides", href: "/resources" },
+      { labelKey: "learn.cmi_framework", href: "/money-framework" },
+      { labelKey: "learn.money_identities", href: "/money-identities" },
+      { labelKey: "learn.articles_guides", href: "/resources" },
     ],
   },
   {
-    title: "Tools",
+    titleKey: "tools.title",
     items: [
-      { label: "Charm Indicator", href: "/cmi-test" },
-      { label: "Daily Companion", href: "/about" },
-      { label: "Reflection Prompts", href: "/resources/prompts" },
+      { labelKey: "tools.charm_indicator", href: "/cmi-test" },
+      { labelKey: "tools.daily_companion", href: "/about" },
+      { labelKey: "tools.reflection_prompts", href: "/resources/prompts" },
     ],
   },
   {
-    title: "Support",
+    titleKey: "support.title",
     items: [
-      { label: "Contact Us", href: "/contact" },
-      { label: "FAQ", href: "/faq" },
-      { label: "Tutorial", href: "/tutorial" },
+      { labelKey: "support.contact", href: "/contact" },
+      { labelKey: "support.faq", href: "/faq" },
+      { labelKey: "support.tutorial", href: "/tutorial" },
     ],
   },
   {
-    title: "Company",
+    titleKey: "company.title",
     items: [
-      { label: "Terms & Conditions", href: "/terms" },
-      { label: "Privacy Policy", href: "/privacy" },
-      { label: "Accessibility", href: "/accessibility" },
+      { labelKey: "company.terms", href: "/terms" },
+      { labelKey: "company.privacy", href: "/privacy" },
+      { labelKey: "company.accessibility", href: "/accessibility" },
     ],
   },
 ];
