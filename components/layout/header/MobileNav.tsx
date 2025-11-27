@@ -1,7 +1,9 @@
-import React from "react";
+"use client";
+
+import { useState } from "react";
 
 function MobileNav() {
-  return <div>MobileNav</div>;
+  const [open, setOpen] = useState(false);
 }
 
 export default MobileNav;

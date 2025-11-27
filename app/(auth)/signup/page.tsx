@@ -1,7 +1,7 @@
-import Image from "next/image";
+import React from "react";
 
-export default function Home() {
-    return (
-        <main>Signup</main>
-    );
+function page() {
+  return <div>page</div>;
 }
+
+export default page;

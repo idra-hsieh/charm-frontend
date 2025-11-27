@@ -1,7 +1,7 @@
-import Image from "next/image";
+import React from "react";
 
-export default function Home() {
-  return (
-    <main>Charm Home Page</main>
-  );
+function page() {
+  return <div>Charm Home Page</div>;
 }
+
+export default page;

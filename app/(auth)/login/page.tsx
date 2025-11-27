@@ -1,7 +1,7 @@
-import Image from "next/image";
+import React from "react";
 
-export default function Home() {
-    return (
-        <main>Login</main>
-    );
+function page() {
+  return <div>page</div>;
 }
+
+export default page;
