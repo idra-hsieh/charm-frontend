@@ -1,46 +1,39 @@
-// tree -l 5 --ignore "node_modules,.next,.git" > structure.txt
-
 
 /Users/idra-hsieh/Documents/Work/SWE/serious-projects/charm-frontend
 ├── README.md
 ├── app
-|  ├── (app)
-|  |  ├── dashboard
-|  |  |  └── page.tsx
+|  ├── [locale]
+|  |  ├── (app)
+|  |  |  ├── dashboard
+|  |  |  |  └── page.tsx
+|  |  |  └── layout.tsx
+|  |  ├── (auth)
+|  |  |  ├── layout.tsx
+|  |  |  ├── login
+|  |  |  |  └── page.tsx
+|  |  |  └── signup
+|  |  |     └── page.tsx
+|  |  ├── (marketing)
+|  |  |  ├── (legal)
+|  |  |  |  ├── accessibility
+|  |  |  |  ├── privacy
+|  |  |  |  └── terms
+|  |  |  ├── (support)
+|  |  |  |  ├── contact
+|  |  |  |  ├── faq
+|  |  |  |  └── tutorial
+|  |  |  ├── about
+|  |  |  |  └── page.tsx
+|  |  |  ├── cmi-test
+|  |  |  |  └── page.tsx
+|  |  |  ├── layout.tsx
+|  |  |  ├── money-identities
+|  |  |  |  └── page.tsx
+|  |  |  ├── page.tsx
+|  |  |  └── resources
+|  |  |     ├── page.tsx
+|  |  |     └── prompts
 |  |  └── layout.tsx
-|  ├── (auth)
-|  |  ├── layout.tsx
-|  |  ├── login
-|  |  |  └── page.tsx
-|  |  └── signup
-|  |     └── page.tsx
-|  ├── (marketing)
-|  |  ├── (legal)
-|  |  |  ├── accessibility
-|  |  |  |  └── page.tsx
-|  |  |  ├── privacy
-|  |  |  |  └── page.tsx
-|  |  |  └── terms
-|  |  |     └── page.tsx
-|  |  ├── (support)
-|  |  |  ├── contact
-|  |  |  |  └── page.tsx
-|  |  |  ├── faq
-|  |  |  |  └── page.tsx
-|  |  |  └── tutorial
-|  |  |     └── page.tsx
-|  |  ├── about
-|  |  |  └── page.tsx
-|  |  ├── cmi-test
-|  |  |  └── page.tsx
-|  |  ├── layout.tsx
-|  |  ├── money-identities
-|  |  |  └── page.tsx
-|  |  ├── page.tsx
-|  |  └── resources
-|  |     ├── page.tsx
-|  |     └── prompts
-|  |        └── page.tsx
 |  ├── favicon.ico
 |  ├── fonts
 |  |  └── Optima
@@ -66,18 +59,32 @@
 |  |  └── header
 |  |     ├── DesktopNav.tsx
 |  |     ├── Header.tsx
-|  |     └── MobileNav.tsx
+|  |     ├── MobileNav.tsx
+|  |     └── NavLink.tsx
 |  └── ui
+|     ├── button.tsx
+|     ├── icons
+|     |  └── lucide-globe.tsx
 |     ├── input.tsx
-|     └── label.tsx
+|     ├── label.tsx
+|     └── sheet.tsx
 ├── components.json
 ├── eslint.config.mjs
+├── i18n
+|  └── request.ts
 ├── lib
 |  ├── cmi
 |  |  ├── questions.ts
 |  |  └── types.ts 
 |  ├── navigation.ts
 |  └── utils.ts
+├── messages
+|  ├── en
+|  |  ├── footer.json
+|  |  └── header.json
+|  └── ja
+|     ├── footer.json
+|     └── header.json
 ├── next-env.d.ts
 ├── next.config.ts
 ├── package-lock.json
@@ -91,9 +98,9 @@
 ├── structure.txt
 └── tsconfig.json
 
-directory: 1492 file: 10245
+directory: 1671 file: 11127
 
-ignored: directory (16)
+ignored: directory (22)
 
 
 [2K[1G
