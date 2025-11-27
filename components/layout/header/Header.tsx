@@ -3,6 +3,7 @@ import Link from "next/link";
 import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
 import LanguageSwitcher from "./LanguageSwitcher";
+import UtilityNav from "./UtilityNav";
 
 function Header() {
   return (
@@ -35,20 +36,10 @@ function Header() {
           <LanguageSwitcher />
 
           {/* Log In */}
-          <Link
-            href="/login"
-            className="text-sm font-semibold underline underline-offset-2"
-          >
-            Log In
-          </Link>
+          <UtilityNav variant="login" />
 
           {/* Try Charm for Free (signup) */}
-          <Link
-            href="/signup"
-            className="inline-flex items-center justify-center rounded-full bg-foreground/80 px-4 py-1.5 text-sm font-semibold text-white shadow-md hover:bg-foreground"
-          >
-            Try Charm for Free
-          </Link>
+          <UtilityNav variant="signup" />
         </div>
 
         {/* Right: Language Switch + Mobile Nav Trigger */}
