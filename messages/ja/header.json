@@ -1,8 +1,8 @@
 {
   "main": {
-    "money_identity_test": "マネーアイデンティティ診断",
+    "money_identity_test": "マネータイプ診断",
     "money_identities": "マネータイプ一覧",
-    "resources": "リソース",
+    "resources": "学び",
     "charm_app": "Charm アプリ"
   },
   "utility": {

@@ -11,7 +11,7 @@ import {
 import { GlobeIcon } from "@/components/ui/icons/lucide-globe";
 import { cn } from "@/lib/utils";
 import { useLocale } from "next-intl";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useTransition } from "react";
 
 const LANGUAGES = [
@@ -22,6 +22,7 @@ const LANGUAGES = [
 function LanguageSwitcher() {
   const locale = useLocale();
   const router = useRouter();
+  const pathname = usePathname();
   const [isPending, startTransition] = useTransition();
 
   const current =
@@ -32,9 +33,32 @@ function LanguageSwitcher() {
 
     startTransition(() => {
       // 1 year
-      document.cookie = `locale=${nextLocale}; pasth=/; max-age=41536000`;
+      const newPathname = buildLocalizedPathname(pathname, nextLocale);
+
+      document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=41536000`;
+      document.cookie = `locale=${nextLocale}; path=/; max-age=41536000`;
+
+      router.replace(newPathname);
       router.refresh();
     });
+  }
+
+  function buildLocalizedPathname(
+    currentPath: string,
+    nextLocale: string
+  ): string {
+    const segments = currentPath.split("/").filter(Boolean);
+
+    if (segments.length === 0) {
+      return `/${nextLocale}`;
+    }
+
+    if (segments[0] === "en" || segments[0] === "ja") {
+      segments[0] = nextLocale;
+      return `/${segments.join("/")}`;
+    }
+
+    return `/${nextLocale}/${segments.join("/")}`;
   }
 
   return (
@@ -62,7 +86,7 @@ function LanguageSwitcher() {
       <DropdownMenuContent
         align="end"
         sideOffset={8}
-        className="min-w-[190px] rounded-2xl border border-foreground/5 bg-accent/5 p-1.5 shadow-xl backdrop-blur-md"
+        className="min-w-[190px] rounded-2xl border border-foreground/5 bg-accent/10 p-1.5 shadow-xl backdrop-blur-md"
       >
         <DropdownMenuLabel className="px-2 py-1.5 text-[11px] font-medium uppercase tracking-wide text-foreground/60">
           Language

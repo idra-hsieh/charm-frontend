@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import type { NavItem } from "@/lib/navigation";
+import { useLocale } from "next-intl";
 
 type NavLinkProps = {
   item: NavItem;
@@ -13,6 +14,24 @@ type NavLinkProps = {
   onClick?: () => void;
 };
 
+const LOCALES = ["en", "ja"] as const;
+type Locale = (typeof LOCALES)[number];
+
+function stripLocale(pathname: string): string {
+  const segments = pathname.split("/").filter(Boolean);
+
+  if (segments.length === 0) return "/";
+
+  const maybeLocale = segments[0] as Locale;
+
+  if (LOCALES.includes(maybeLocale)) {
+    const rest = segments.slice(1); // ["cmi-test"]
+    return "/" + rest.join("/"); // "/cmi-test"
+  }
+
+  return pathname;
+}
+
 function NavLink({
   item,
   label,
@@ -21,12 +40,16 @@ function NavLink({
   onClick,
 }: NavLinkProps) {
   const pathname = usePathname();
+  const locale = useLocale();
+
+  const normalizedPath = stripLocale(pathname);
 
   const isActive =
     !item.external &&
     (exact
-      ? pathname === item.href
-      : pathname === item.href || pathname.startsWith(item.href + "/"));
+      ? normalizedPath === item.href
+      : normalizedPath === item.href ||
+        normalizedPath.startsWith(item.href + "/"));
 
   const baseClasses =
     "text-sm font-secondary font-semibold transition-colors duration-150";
@@ -52,10 +75,13 @@ function NavLink({
     );
   }
 
+  const localizedHref =
+    item.href === "/" ? `/${locale}` : `/${locale}${item.href}`;
+
   // internal links: next/link
   return (
     <Link
-      href={item.href}
+      href={localizedHref}
       aria-current={isActive ? "page" : undefined}
       onClick={onClick}
       className={cn(

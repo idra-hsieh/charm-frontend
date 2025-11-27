@@ -1,3 +1,4 @@
+// tree -l 5 --ignore "node_modules,.next,.git" > structure.txt
 
 /Users/idra-hsieh/Documents/Work/SWE/serious-projects/charm-frontend
 ├── README.md
@@ -59,10 +60,12 @@
 |  |  └── header
 |  |     ├── DesktopNav.tsx
 |  |     ├── Header.tsx
+|  |     ├── LanguageSwitcher.tsx
 |  |     ├── MobileNav.tsx
 |  |     └── NavLink.tsx
 |  └── ui
 |     ├── button.tsx
+|     ├── dropdown-menu.tsx
 |     ├── icons
 |     |  └── lucide-globe.tsx
 |     ├── input.tsx
@@ -90,6 +93,7 @@
 ├── package-lock.json
 ├── package.json
 ├── postcss.config.mjs
+├── proxy.ts
 ├── public
 |  ├── favicon.ico
 |  └── images
@@ -98,9 +102,9 @@
 ├── structure.txt
 └── tsconfig.json
 
-directory: 1671 file: 11127
+directory: 1707 file: 11266
 
-ignored: directory (22)
+ignored: directory (28)
 
 
 [2K[1G
