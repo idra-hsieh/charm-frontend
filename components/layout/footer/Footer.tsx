@@ -29,6 +29,10 @@ function Footer() {
     (section) => section.titleKey === "socials.title"
   );
 
+  const navSections = footerSections.filter(
+    (section) => section.titleKey !== "socials.title"
+  );
+
   const socialItems = socialSection?.items ?? [];
 
   return (
@@ -38,7 +42,7 @@ function Footer() {
         <div className="overflow-hidden rounded-t-xl border border-black/5 bg-white/80 shadow-[0_20px_120px_rgba(0,0,0,0.15)] backdrop-blur">
           {/* Footer Navigation */}
           <div className="grid grid-cols-2 gap-y-8 gap-x-10 px-6 py-10 md:grid-cols-4 md:px-10 lg:px-14">
-            {footerSections.map((section) => (
+            {navSections.map((section) => (
               <div key={section.titleKey} className="space-y-4">
                 {/* Title */}
                 <h2 className="text-lg font-semibold text-primary">

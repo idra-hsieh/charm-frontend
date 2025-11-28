@@ -13,8 +13,7 @@ function Placeholder() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `url("/images/placeholder.png")`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundSize: "contain",
           backgroundColor: "black",
         }}
       />
