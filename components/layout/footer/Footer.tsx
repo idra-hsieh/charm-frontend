@@ -72,8 +72,12 @@ function Footer() {
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               {/* Copyroght & Tagline */}
               <p className="text-sm text-primary/70">
-                <span className="font-semibold text-primary">{t("meta.copyright")}</span>{" "}
-                {t("meta.tagline")}
+                <span className="font-semibold text-primary">
+                  {t("meta.copyright")}
+                </span>{" "}
+                <span className="block md:inline md:ml-1">
+                  {t("meta.tagline")}
+                </span>
               </p>
 
               {/* Socials */}
