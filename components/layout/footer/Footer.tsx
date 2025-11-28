@@ -1,20 +1,35 @@
 "use client";
 
 import { footerSections } from "@/lib/navigation";
-import { Facebook, Icon, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Twitter,
+  Youtube,
+  type LucideIcon,
+} from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 
-const SOCIAL_LINKS = [
-  { key: "instagram", icon: Instagram },
-  { key: "facebook", icon: Facebook },
-  { key: "linkedin", icon: Linkedin },
-  { key: "x", icon: Twitter },
-  { key: "youtube", icon: Youtube },
-] as const;
+type SocialKey = "instagram" | "facebook" | "linkedin" | "x" | "youtube";
+
+const SOCIAL_ICONS: Record<SocialKey, LucideIcon> = {
+  instagram: Instagram,
+  facebook: Facebook,
+  linkedin: Linkedin,
+  x: Twitter,
+  youtube: Youtube,
+};
 
 function Footer() {
   const t = useTranslations("footer");
+
+  const socialSection = footerSections.find(
+    (section) => section.titleKey === "socials.title"
+  );
+
+  const socialItems = socialSection?.items ?? [];
 
   return (
     <footer className="bg-marble bg-cover bg-center pt-12 rounded-t-3xl">
@@ -59,19 +74,25 @@ function Footer() {
 
               {/* Socials */}
               <div className="flex items-center gap-3 md:gap-4">
-                {SOCIAL_LINKS.map(({ key, icon: Icon }) => {
-                  const label = t(`socials.${key}`);
+                {socialItems.map((item) => {
+                  const socialKey = item.labelKey.split(".")[1] as SocialKey;
+                  const Icon = SOCIAL_ICONS[socialKey];
+
+                  if (!Icon) return null;
+
+                  const label = t(`socials.${socialKey}`);
 
                   return (
-                    <div key={key} className="group relative">
+                    <div key={item.labelKey} className="group relative">
                       <Link
-                        href="#"
+                        href={item.href}
                         aria-label={label}
                         className="flex h-10 w-10 items-center justify-center rounded-full border border-transparent bg-primary/5 text-primary/70 transition duration-200 ease-out hover:-translate-y-[2px] hover:border-accent/60 hover:bg-accent/10 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent/60"
                         title={label}
                       >
                         <Icon className="h-5 w-5" strokeWidth={1.75} />
                       </Link>
+
                       <span className="pointer-events-none absolute left-1/2 top-[-44px] -translate-x-1/2 rounded-full bg-primary text-sm text-primary-foreground px-3 py-1 opacity-0 shadow-md transition duration-200 ease-out group-hover:translate-y-1 group-hover:opacity-100">
                         {label}
                       </span>

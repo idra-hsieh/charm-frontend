@@ -59,4 +59,14 @@ export const footerSections: FooterSection[] = [
       { labelKey: "company.accessibility", href: "/accessibility" },
     ],
   },
+  {
+    titleKey: "socials.title",
+    items: [
+      { labelKey: "socials.instagram", href: "/placeholder" },
+      { labelKey: "socials.facebook", href: "/placeholder" },
+      { labelKey: "socials.linkedin", href: "/placeholder" },
+      { labelKey: "socials.x", href: "/placeholder" },
+      { labelKey: "socials.youtube", href: "/placeholder" },
+    ],
+  },
 ];
