@@ -30,7 +30,7 @@ export const footerSections: FooterSection[] = [
   {
     titleKey: "learn.title",
     items: [
-      { labelKey: "learn.cmi_framework", href: "/money-framework" },
+      { labelKey: "learn.cmi_framework", href: "/resources/cmi-framework" },
       { labelKey: "learn.money_identities", href: "/money-identities" },
       { labelKey: "learn.articles_guides", href: "/resources" },
     ],
