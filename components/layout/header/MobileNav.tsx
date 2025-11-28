@@ -86,7 +86,7 @@ function MobileNav() {
           <SheetClose asChild>
             <Link
               href="/login"
-              className="w-full rounded-full border border-foreground/20 bg-background/80 px-4 py-2 text-sm font-secondary font-semibold text-foreground/85 text-center hover:border-accent/70 hover:bg-accent/5 transition-all"
+              className="w-full rounded-full border border-foreground/20 bg-accent/2 px-4 py-2 text-sm font-secondary font-semibold text-foreground/85 text-center hover:border-accent/70 hover:bg-accent/5 hover:shadow-md hover:-translate-y-[1.5px] transition-all"
             >
               {t("utility.login")}
             </Link>

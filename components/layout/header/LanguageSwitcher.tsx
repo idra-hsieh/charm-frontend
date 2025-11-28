@@ -74,9 +74,9 @@ function LanguageSwitcher({ className }: LanguageSwitcherProps) {
           disabled={isPending}
           className={cn(
             "inline-flex items-center gap-1.5 rounded-full border border-foreground/5",
-            "bg-accent/5 px-3 py-1.5 text-xs font-semibold uppercase",
+            "bg-accent/2 px-3 py-1.5 text-xs font-semibold uppercase",
             "shadow-sm backdrop-blur-md transition-all duration-150",
-            "hover:border-foreground/10 hover:shadow-md hover:-translate-y-[1px]",
+            "hover:border-foreground/10 hover:shadow-md hover:-translate-y-[1.5px]",
             "active:translate-y-0 active:shadow-sm",
             className
           )}
@@ -91,7 +91,7 @@ function LanguageSwitcher({ className }: LanguageSwitcherProps) {
       <DropdownMenuContent
         align="end"
         sideOffset={8}
-        className="min-w-[190px] rounded-2xl border border-foreground/5 bg-accent/10 p-1.5 shadow-xl backdrop-blur-md"
+        className="min-w-[190px] rounded-2xl border border-foreground/5 bg-marble p-1.5 shadow-xl backdrop-blur-md"
       >
         <DropdownMenuLabel className="px-2 py-1.5 text-[11px] font-medium uppercase tracking-wide text-foreground/60">
           Language
