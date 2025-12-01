@@ -1,3 +1,5 @@
+import { MONEY_TYPES, PATTERN_FAMILIES } from "./data";
+
 export function getResult(scores: Record<string, number>) {
   // Logic: > 0 is "1", <= 0 is "0"
   // Order: Closeness | Control | Self-Worth | Boundary | Growth
