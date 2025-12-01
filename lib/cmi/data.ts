@@ -37,4 +37,4 @@ export const QUESTIONS: Question[] = [
   { id: "gr5", category: "growth", text: "I struggle to celebrate financial wins because I am already focused on the next target.", weight: 1 },
 ];
 
-export const PAGE_SIZE = 10;
+export const PAGE_SIZE = 5;

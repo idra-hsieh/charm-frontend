@@ -32,7 +32,7 @@ function ProgressBar({ current, total, onPrevious }: ProgressBarProps) {
       </div>
 
       {/* Step Text */}
-      <span className="w-[110px] text-left text-xs text-foreground/80 whitespace-nowrap px-2">
+      <span className="w-[110px] text-left text-xs text-foreground/80 whitespace-nowrap font-semibold px-2">
         Step {current} of {total}
       </span>
     </div>

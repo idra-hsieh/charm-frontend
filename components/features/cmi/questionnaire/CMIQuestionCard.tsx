@@ -13,45 +13,57 @@ interface Props {
   onFocus: () => void;
 }
 
-export default function CMIQuestionCard({ 
+function CMIQuestionCard({ 
   question, index, isFocused, selectedValue, onSelect, onFocus 
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
 
-  // Optional: Auto-scroll when focused
+  // Auto-scroll when focused
   useEffect(() => {
     if (isFocused && ref.current) {
       ref.current.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   }, [isFocused]);
+    
+    const disagreeActive = selectedValue != undefined && selectedValue <= 2;
+    const agreeActive = selectedValue !== undefined && selectedValue >= 4;
 
   return (
     <motion.div
       ref={ref}
       onClick={onFocus}
       animate={{ 
-        opacity: isFocused ? 1 : 0.3, 
+        opacity: isFocused ? 1 : 0.65, 
         scale: isFocused ? 1 : 0.98,
-        filter: isFocused ? "blur(0px)" : "blur(1px)"
+        // filter: isFocused ? "blur(0px)" : "blur(1px)"
       }}
       className={cn(
         "relative p-8 rounded-xl border transition-all duration-500 cursor-pointer",
         isFocused 
-          ? "bg-[#1c1c1c] border-white/10 shadow-2xl z-10" 
-          : "bg-black/80 border-transparent z-0"
+          ? "bg-marble border-accent shadow-2xl z-10" 
+          : "bg-marble border-transparent z-0 hover:border-accent hover:-translate-y-[1.5px]"
       )}
     >
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-        <h3 className="text-white font-primary text-xl md:text-2xl font-light leading-snug flex-1">
-          <span className="text-accent mr-3 text-lg">{index}.</span>
+        <h3 className="text-foreground/80 font-secondary font-semibold text-sm font-light leading-snug flex-1 tracking-wide">
+          {index}. {" "}
           {question.text}
         </h3>
 
         {/* Likert Scale */}
-        <div className="flex items-center gap-3 shrink-0">
-          <span className="text-white/40 text-xs uppercase tracking-wider hidden md:block">Disagree</span>
+        <div className="flex items-center gap-4 shrink-0">
+            
+          {/* DISAGREE label */}
+        <span
+            className={cn(
+              "text-accent/90 text-[11px] uppercase tracking-[0.16em] transition-all duration-200",
+              disagreeActive && "text-accent font-semibold"
+            )}
+        >
+            Disagree
+        </span>
           
-          <div className="flex gap-2">
+          <div className="flex gap-4 justify-center items-center">
             {[1, 2, 3, 4, 5].map((val) => (
               <button
                 key={val}
@@ -60,19 +72,41 @@ export default function CMIQuestionCard({
                   onSelect(val);
                 }}
                 className={cn(
-                  "w-8 h-12 rounded-full transition-all duration-300 border border-white/20",
-                  selectedValue === val 
-                    ? "bg-accent border-accent scale-110 shadow-[0_0_15px_rgba(187,147,100,0.5)]" 
-                    : "bg-white/10 hover:bg-white/20"
+                // base
+                "relative flex items-center justify-center w-6 rounded-full border cursor-pointer",
+                "transition-all duration-200 ease-out",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                
+                // shape
+                val === 3
+                    ? "w-6 h-8"
+                    : val === 2 || val === 4
+                        ? "w-6 h-10"
+                        : "w-6 h-12",
+
+                // state
+                selectedValue === val 
+                    ? "bg-accent border-accent scale-105 shadow-[0_8px_20px_rgba(187,147,100,0.35)]"
+                    : "bg-background/95 border-accent/30 shadow-[0_1px_3px_rgba(0,0,0,0.08)] hover:bg-accent/10 hover:border-accent/70 hover:-translate-y-[1px] active:scale-95"
                 )}
                 aria-label={`Select option ${val}`}
               />
             ))}
           </div>
 
-          <span className="text-white/40 text-xs uppercase tracking-wider hidden md:block">Agree</span>
+          {/* AGREE label */}
+          <span
+            className={cn(
+              "text-accent/90 text-[11px] uppercase tracking-[0.16em] transition-all duration-200",
+              agreeActive && "text-accent font-semibold"
+            )}
+          >
+            Agree
+          </span>
         </div>
       </div>
     </motion.div>
   );
 }
+
+export default CMIQuestionCard
