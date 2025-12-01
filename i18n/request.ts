@@ -24,12 +24,14 @@ export default getRequestConfig(async () => {
   // TO-DO: extend if new json added
   const header = (await import(`../messages/${locale}/header.json`)).default;
   const footer = (await import(`../messages/${locale}/footer.json`)).default;
+  const placeholder = (await import(`../messages/${locale}/placeholder.json`)).default;
 
   return {
     locale,
     messages: {
       header,
       footer,
+      placeholder,
       // TO-DO: extend if new json added
     },
   };

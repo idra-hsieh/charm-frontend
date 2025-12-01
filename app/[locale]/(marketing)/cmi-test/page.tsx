@@ -7,7 +7,6 @@ import { useState } from "react";
 function CMITestPage() {
   const [isFinished, setIsFinished] = useState(false);
   const [answers, setAnswers] = useState<Record<string, number>>({});
-  const [progress, setProgress] = useState<{ current: number; total: number; onPrevious: () => void } | null>(null);
   
   const handleFinish = (finalAnswers: Record<string, number>, email: string) => {
     setAnswers(finalAnswers);
@@ -19,17 +18,8 @@ function CMITestPage() {
   
   return (
     <>
-      {progress && (
-        <CMITestHeader
-          current={progress.current}
-          total={progress.total}
-          onPrevious={progress.onPrevious}
-        />
-      )}
-      <CMIQuestionnaire 
-        onComplete={handleFinish} 
-        onProgressChange={setProgress} 
-      />
+      <CMITestHeader />
+      <CMIQuestionnaire onComplete={handleFinish} />
     </>
   )
 }

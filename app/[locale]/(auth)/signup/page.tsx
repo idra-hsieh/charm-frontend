@@ -1,11 +1,12 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import React from "react";
 
 function SignupPlaceholder() {
   const router = useRouter();
+  const t = useTranslations("placeholder");
 
   return (
     <main className="fixed inset-0 z-40 overflow-hidden">
@@ -36,10 +37,10 @@ function SignupPlaceholder() {
       {/* Centered Content */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center animate-fade-in">
         <h1 className="text-accent lg:text-6xl text-5xl font-semibold font-primary">
-          Coming Soon...
+          {t("title")}
         </h1>
         <p className="font-primary text-white/80 mt-6 text-md lg:text-lg">
-          This feature is under development.
+          {t("description")}
         </p>
       </div>
     </main>
