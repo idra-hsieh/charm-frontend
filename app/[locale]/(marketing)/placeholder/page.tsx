@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
 
@@ -9,14 +10,16 @@ function Placeholder() {
   return (
     <main className="fixed inset-0 z-40 overflow-hidden">
       {/* Placeholder Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url("/images/login-placeholder.png")`,
-          backgroundSize: "contain",
-          backgroundColor: "black",
-        }}
-      />
+      <div className="absolute inset-0 bg-black">
+        <Image
+          src="/images/login-placeholder.png"
+          alt="Placeholder background"
+          fill
+          priority
+          sizes="100vw"
+          className="object-contain object-center"
+        />
+      </div>
 
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-foreground/60 backdrop-blur-md" />
