@@ -4,7 +4,6 @@ import React, { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { QUESTIONS, PAGE_SIZE } from "@/lib/cmi/data";
 import { calculateAllScores } from "@/lib/cmi/scoring"; // Import the new helper
-import CMIQuestionCard from "./CMIQuestionCard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";

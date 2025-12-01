@@ -1,10 +1,26 @@
 "use client";
 
+import CMIQuestionnaire from "@/components/features/cmi/questionnaire/CMIQuestionnaire";
 import CMITestHeader from "@/components/features/cmi/questionnaire/CMITestHeader";
+import { useState } from "react";
 
 function CMITestPage() {
+  const [isFinished, setIsFinished] = useState(false);
+  const [answers, setAnswers] = useState<Record<string, number>>({});
+  
+  const handleFinish = (finalAnswers: Record<string, number>, email: string) => {
+    setAnswers(finalAnswers);
+    // TO-DO: Send email to backend API
+    setIsFinished(true);
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+  
   return (
-    <CMITestHeader />
+    <>
+      <CMITestHeader />
+      <CMIQuestionnaire onComplete={handleFinish} />
+    </>
   )
 }
 

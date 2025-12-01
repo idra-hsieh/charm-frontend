@@ -1,4 +1,4 @@
-import React from 'react'
+import { motion } from "framer-motion";
 
 type ProgressBarProps = {
   current: number; // current page
@@ -23,9 +23,11 @@ function ProgressBar({ current, total, onPrevious }: ProgressBarProps) {
 
       {/* Progress Bar Core */}
       <div className="flex-1 h-3.5 rounded-full bg-foreground overflow-hidden">
-        <div
-          className="h-full rounded-full bg-[#C8A46A] transition-all duration-300"
-          style={{ width: `${progress}%` }}
+        <motion.div
+          className="h-full rounded-full bg-[#C8A46A]"
+          initial={false}
+          animate={{ width: `${progress}%` }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
         />
       </div>
 
