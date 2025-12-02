@@ -25,6 +25,7 @@ export default getRequestConfig(async () => {
   const header = (await import(`../messages/${locale}/header.json`)).default;
   const footer = (await import(`../messages/${locale}/footer.json`)).default;
   const placeholder = (await import(`../messages/${locale}/placeholder.json`)).default;
+  const metadata = (await import(`../messages/${locale}/metadata.json`)).default;
   const cmi = {
     ui: (await import(`../messages/${locale}/cmi-test/ui.json`)).default,
     questions: (await import(`../messages/${locale}/cmi-test/questions.json`)).default,
@@ -39,6 +40,7 @@ export default getRequestConfig(async () => {
       footer,
       placeholder,
       cmi,
+      Metadata: metadata
       // TO-DO: extend if new json added
     },
   };

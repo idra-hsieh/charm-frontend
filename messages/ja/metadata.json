@@ -1,0 +1,105 @@
+{
+  "default": {
+    "title": "Charm",
+    "title_template": "%s | Charm",
+    "description": "Charmマネー・インジケーター®で、あなたの「マネータイプ」を診断しましょう。Charmは、お金と生き方の哲学を調和させ、あなたらしい資産形成をサポートするファイナンシャル・プラットフォームです。",
+    "keywords": "マネータイプ診断, お金の心理学, 資産管理, CMI診断, 家計簿, ライフプラン, 価値観, フィンテック",
+    "open_graph": {
+      "site_name": "Charm (チャーム)",
+      "locale": "ja_JP"
+    }
+  },
+  
+  "app": {
+    "dashboard": {
+      "title": "ダッシュボード",
+      "description": "資産状況の全体像と、目標に向けた進捗を確認できます。"
+    }
+  },
+
+  "auth": {
+    "login": {
+      "title": "ログイン",
+      "description": "Charmアカウントにログインして、分析結果を確認しましょう。"
+    },
+    "signup": {
+      "title": "新規登録",
+      "description": "Charmのアカウントを無料で作成し、あなただけのお金の旅を始めましょう。"
+    }
+  },
+
+  "marketing": {
+    "home": {
+      "title": "Charm | お金と生き方の哲学を調和させる",
+      "description": "心理学とデータを活用して、あなたとお金の関係性を紐解くための最適なアプリです。"
+    },
+    "about": {
+      "title": "Charm アプリ",
+      "description": "金融ウェルネスを再定義するCharmのミッションと、開発チームの哲学について。"
+    },
+    "money_identities": {
+      "title": "マネータイプ一覧",
+      "description": "8つのマネータイプ（原型）を探求し、それぞれの強みと課題を深く理解しましょう。"
+    },
+    "placeholder": {
+      "title": "公開準備中",
+      "description": "現在開発中の機能です。公開までしばらくお待ちください。"
+    },
+    
+    "legal": {
+      "accessibility": {
+        "title": "アクセシビリティ",
+        "description": "すべての方にCharmを快適にご利用いただくための取り組みについて。"
+      },
+      "privacy": {
+        "title": "プライバシーポリシー",
+        "description": "お客様の個人情報の取り扱いと保護方針について。"
+      },
+      "terms": {
+        "title": "利用規約",
+        "description": "Charmをご利用いただく際のルールと規定。"
+      }
+    },
+    
+    "support": {
+      "contact": {
+        "title": "お問い合わせ",
+        "description": "サポートチームへのご質問・ご相談はこちらから。"
+      },
+      "faq": {
+        "title": "よくある質問",
+        "description": "CMI診断やアカウント管理、料金に関するFAQ。"
+      },
+      "tutorial": {
+        "title": "使い方ガイド",
+        "description": "Charmを効果的に活用するためのステップバイステップガイド。"
+      }
+    },
+
+    "resources": {
+      "index": {
+        "title": "学び",
+        "description": "金融リテラシーを高め、成長するための厳選ガイドとツール。"
+      },
+      "cmi_framework": {
+        "title": "CMI フレームワーク",
+        "description": "マネータイプの核となる理論フレームワークについて解説します。"
+      },
+      "prompts": {
+        "title": "振り返りのヒント",
+        "description": "お金に対するマインドセットを整えるための、内省ジャーナリング・ガイド。"
+      }
+    },
+
+    "cmi_test": {
+      "index": {
+        "title": "マネータイプ診断",
+        "description": "たった5分で完了。あなたの深層心理にある「マネータイプ」を診断します。"
+      },
+      "result": {
+        "title": "診断結果",
+        "description": "あなたのマネータイプの詳細分析、強み、そして個別のアドバイスを確認しましょう。"
+      }
+    }
+  }
+}

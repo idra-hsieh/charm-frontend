@@ -1,9 +1,12 @@
-// app/layout.tsx
+// app/[locale]/layout.tsx
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "../globals.css";
 import { NextIntlClientProvider } from "next-intl";
+import { getMessages, getTranslations } from "next-intl/server";
+import { routing } from "@/i18n/routing";
+import { setRequestLocale } from "next-intl/server";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -37,25 +40,72 @@ const optima = localFont({
   variable: "--font-optima",
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: "Charm",
-    template: "%s | Charm",
-  },
-  description:
-    "Charm helps you build a calm, confident relationship with money — grounded in psychology, clarity, and daily practice.",
-};
+// TO-DO: update formal url
+const BASE_URL = "https://charm-money.vercel.app";
+
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  // Read "default" in messages/en/metadata.json
+  const t = await getTranslations({ locale, namespace: "Metadata.default" });
+
+  // Decide canonical URL based on language (e.g. /en or /ja)
+  const currentUrl = locale === "en" ? BASE_URL : `${BASE_URL}/${locale}`;
+
+  return {
+
+    title: {
+      default: t("title"),
+      template: t("title_template"),
+    },
+
+    description: t("description"),
+    
+    keywords: t("keywords").split(",").map((k) => k.trim()),
+
+    openGraph: {
+      title: {
+        default: t("title"),
+        template: t("title_template"),
+      },
+      description: t("description"),
+      url: currentUrl,
+      siteName: t("open_graph.site_name"),
+      locale: t("open_graph.locale"), // Automatically read language
+      type: "website",
+      images: [
+        {
+          url: "/images/charm-logo.png",
+          width: 1200,
+          height: 630,
+          alt: t("title"),
+        },
+      ],
+    },
+  };
+}
 
 type RootLayoutProps = {
   children: React.ReactNode;
+  params: { locale: string };
 };
 
-async function RootLayout({ children }: RootLayoutProps) {
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+async function RootLayout({ children, params: { locale } }: RootLayoutProps) {
+  setRequestLocale(locale);
+  const messages = await getMessages();
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body className={`${inter.variable} ${optima.variable} antialiased`}>
-        {/* next-intl plugin + i18n/request.ts will inject locale + messages here */}
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

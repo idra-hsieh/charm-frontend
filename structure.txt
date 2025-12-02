@@ -11,6 +11,7 @@
 |  |  ├── (auth)
 |  |  |  ├── layout.tsx
 |  |  |  ├── login
+|  |  |  |  ├── PageClient.tsx
 |  |  |  |  └── page.tsx
 |  |  |  └── signup
 |  |  |     └── page.tsx
@@ -26,12 +27,16 @@
 |  |  |  ├── about
 |  |  |  |  └── page.tsx
 |  |  |  ├── cmi-test
+|  |  |  |  ├── [code]
 |  |  |  |  └── page.tsx
 |  |  |  ├── layout.tsx
 |  |  |  ├── money-identities
 |  |  |  |  └── page.tsx
 |  |  |  ├── page.tsx
+|  |  |  ├── placeholder
+|  |  |  |  └── page.tsx
 |  |  |  └── resources
+|  |  |     ├── cmi-framework
 |  |  |     ├── page.tsx
 |  |  |     └── prompts
 |  |  └── layout.tsx
@@ -48,21 +53,28 @@
 |  |  └── PageTransition.tsx
 |  ├── features
 |  |  └── cmi
-|  |     ├── CMIEmailStep.tsx
-|  |     └── CharmMoneyIndicatorFlow.tsx
+|  |     ├── questionnaire
+|  |     |  ├── CMIQuestionCard.tsx
+|  |     |  ├── CMIQuestionnaire.tsx
+|  |     |  ├── CMITestHeader.tsx
+|  |     |  └── ProgressBar.tsx
+|  |     └── result
+|  |        ├── CMIResultHeader.tsx
+|  |        ├── CMIResults.tsx
+|  |        └── RadarChart.tsx
 |  ├── form
 |  |  ├── CMIQuestionCard.tsx
 |  |  └── LikertScale.tsx
 |  ├── layout
 |  |  ├── footer
-|  |  |  ├── Footer.tsx
-|  |  |  └── FooterSection.tsx
+|  |  |  └── Footer.tsx
 |  |  └── header
 |  |     ├── DesktopNav.tsx
 |  |     ├── Header.tsx
 |  |     ├── LanguageSwitcher.tsx
 |  |     ├── MobileNav.tsx
-|  |     └── NavLink.tsx
+|  |     ├── NavLink.tsx
+|  |     └── UtilityNav.tsx
 |  └── ui
 |     ├── button.tsx
 |     ├── dropdown-menu.tsx
@@ -74,20 +86,36 @@
 ├── components.json
 ├── eslint.config.mjs
 ├── i18n
-|  └── request.ts
+|  ├── request.ts
+|  └── routing.ts
 ├── lib
 |  ├── cmi
-|  |  ├── questions.ts
-|  |  └── types.ts 
+|  |  ├── content.ts
+|  |  ├── data.ts
+|  |  ├── scoring.ts
+|  |  └── types.ts
 |  ├── navigation.ts
 |  └── utils.ts
 ├── messages
 |  ├── en
+|  |  ├── cmi-test
+|  |  |  ├── families.json
+|  |  |  ├── questions.json
+|  |  |  ├── types.json
+|  |  |  └── ui.json
 |  |  ├── footer.json
-|  |  └── header.json
+|  |  ├── header.json
+|  |  ├── metadata.json
+|  |  └── placeholder.json
 |  └── ja
+|     ├── cmi-test
+|     |  ├── families.json
+|     |  ├── questions.json
+|     |  ├── types.json
+|     |  └── ui.json
 |     ├── footer.json
-|     └── header.json
+|     ├── header.json
+|     └── placeholder.json
 ├── next-env.d.ts
 ├── next.config.ts
 ├── package-lock.json
@@ -97,12 +125,32 @@
 ├── public
 |  ├── favicon.ico
 |  └── images
+|     ├── avatars
+|     |  ├── 01-TheReflectors.png
+|     |  ├── 02-TheIdealists.png
+|     |  ├── 03-TheOrganizers.png
+|     |  ├── 04-TheEvaluators.png
+|     |  ├── 05-TheEmpaths.png
+|     |  ├── 06-ThePerformers.png
+|     |  ├── 07-TheGuardians.png
+|     |  └── 08-TheBuilders.png
 |     ├── charm-logo.png
-|     └── marble-light.jpg
+|     ├── family-badges
+|     |  ├── 01-TheReflectors.png
+|     |  ├── 02-TheIdealists.png
+|     |  ├── 03-TheOrganizers.png
+|     |  ├── 04-TheEvaluators.png
+|     |  ├── 05-TheEmpaths.png
+|     |  ├── 06-ThePerformers.png
+|     |  ├── 07-TheGuardians.png
+|     |  └── 08-TheBuilders.png
+|     ├── login-placeholder.png
+|     ├── marble-light.jpg
+|     └── signup-placeholder.png
 ├── structure.txt
 └── tsconfig.json
 
-directory: 1707 file: 11266
+directory: 1761 file: 11396
 
 ignored: directory (28)
 

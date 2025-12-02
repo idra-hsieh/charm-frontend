@@ -25,7 +25,7 @@ function ProgressBar({ current, total, onPrevious }: ProgressBarProps) {
       </button>
 
       {/* Progress Bar Core */}
-      <div className="flex-1 h-3.5 rounded-full bg-foreground overflow-hidden">
+      <div className="flex-1 h-3.5 rounded-full bg-secondary overflow-hidden">
         <motion.div
           className="h-full rounded-full bg-[#C8A46A]"
           initial={false}
