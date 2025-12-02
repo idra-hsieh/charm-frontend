@@ -57,6 +57,8 @@ function CMIQuestionnaire({ onComplete, onProgressChange }: Props) {
   const [focusedIndex, setFocusedIndex] = useState(0);
   const [email, setEmail] = useState("");
 
+  const [showEmailWarning, setShowEmailWarning] = useState(false);
+
   // Derived Data
   const totalPages = Math.ceil(QUESTIONS.length / PAGE_SIZE);
   const isLastPage = currentPage === totalPages - 1;
@@ -113,6 +115,12 @@ function CMIQuestionnaire({ onComplete, onProgressChange }: Props) {
   }, [currentPage]);
 
   const handleFinish = () => {
+    if (!isEmailValid || !subscribe) {
+      setShowEmailWarning(true);
+      setTimeout(() => setShowEmailWarning(false), 2500)
+      return;
+    }
+
     // Calculate scores using original constant (IDs match)
     const finalScores = calculateAllScores(QUESTIONS, answers);
     onComplete(finalScores, email, subscribe);
@@ -156,7 +164,7 @@ function CMIQuestionnaire({ onComplete, onProgressChange }: Props) {
       {/* Footer Actions */}
       <div className="mt-12 flex flex-col items-center gap-6 px-4">
         {!isLastPage ? (
-          <div className="relative flex flex-col items-center">
+          <div className="relative">
             <Button 
               onClick={handleNextClick}
               size="sm"
@@ -246,16 +254,28 @@ function CMIQuestionnaire({ onComplete, onProgressChange }: Props) {
                 </Label>
             </div>
             
-            <Button 
-              onClick={handleFinish} 
-              disabled={!isEmailValid}
-              className={cn(
-                BUTTON_BASE_STYLES,
-                isEmailValid ? BUTTON_ACTIVE_STYLES : "opacity-30 cursor-not-allowed bg-accent/40 text-white/40 border border-white/5"
-              )}
-            >
-              {t("reveal_results")}
-            </Button>
+            <div className="relative flex flex-col items-center">
+                <Button 
+                  onClick={handleFinish} 
+                  aria-disabled={!isEmailValid || !subscribe}
+                  className={cn(
+                    BUTTON_BASE_STYLES,
+                    isEmailValid && subscribe ? BUTTON_ACTIVE_STYLES : "opacity-30 cursor-not-allowed bg-accent/40 text-white/40 border border-white/5"
+                  )}
+                >
+                  {t("reveal_results")}
+                </Button>
+
+                {showEmailWarning && (
+                  <motion.p 
+                    initial={{ opacity: 0, y: 2 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="absolute top-full mt-20 text-xs text-background/75 tracking-wide whitespace-nowrap"
+                  >
+                    {t("warning_email")}
+                  </motion.p>
+                )}
+            </div>
           </motion.div>
         )}
       </div>
