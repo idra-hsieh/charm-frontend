@@ -6,6 +6,7 @@
 |  ├── [locale]
 |  |  ├── (app)
 |  |  |  ├── dashboard
+|  |  |  |  ├── PageClient.tsx
 |  |  |  |  └── page.tsx
 |  |  |  └── layout.tsx
 |  |  ├── (auth)
@@ -14,6 +15,7 @@
 |  |  |  |  ├── PageClient.tsx
 |  |  |  |  └── page.tsx
 |  |  |  └── signup
+|  |  |     ├── PageClient.tsx
 |  |  |     └── page.tsx
 |  |  ├── (marketing)
 |  |  |  ├── (legal)
@@ -24,18 +26,24 @@
 |  |  |  |  ├── contact
 |  |  |  |  ├── faq
 |  |  |  |  └── tutorial
+|  |  |  ├── PageClient.tsx
 |  |  |  ├── about
+|  |  |  |  ├── PageClient.tsx
 |  |  |  |  └── page.tsx
 |  |  |  ├── cmi-test
+|  |  |  |  ├── PageClient.tsx
 |  |  |  |  ├── [code]
 |  |  |  |  └── page.tsx
 |  |  |  ├── layout.tsx
 |  |  |  ├── money-identities
+|  |  |  |  ├── PageClient.tsx
 |  |  |  |  └── page.tsx
 |  |  |  ├── page.tsx
 |  |  |  ├── placeholder
+|  |  |  |  ├── PageClient.tsx
 |  |  |  |  └── page.tsx
 |  |  |  └── resources
+|  |  |     ├── PageClient.tsx
 |  |  |     ├── cmi-framework
 |  |  |     ├── page.tsx
 |  |  |     └── prompts
@@ -115,6 +123,7 @@
 |     |  └── ui.json
 |     ├── footer.json
 |     ├── header.json
+|     ├── metadata.json
 |     └── placeholder.json
 ├── next-env.d.ts
 ├── next.config.ts
@@ -150,7 +159,7 @@
 ├── structure.txt
 └── tsconfig.json
 
-directory: 1761 file: 11396
+directory: 1761 file: 11405
 
 ignored: directory (28)
 
