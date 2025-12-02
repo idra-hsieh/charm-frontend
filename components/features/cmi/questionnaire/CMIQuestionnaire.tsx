@@ -2,8 +2,9 @@
 
 import { useState, useMemo, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
-import { QUESTIONS, PAGE_SIZE } from "@/lib/cmi/data"; //
-import { calculateAllScores } from "@/lib/cmi/scoring"; //
+import { QUESTIONS, PAGE_SIZE } from "@/lib/cmi/data";
+import { calculateAllTraitScores, type Answers } from "@/lib/cmi/scoring";
+import { getResult, type TraitScoresByTrait } from "@/lib/cmi/content"; 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -13,8 +14,18 @@ import { useTranslations } from "next-intl";
 import { Checkbox } from "@/components/ui/checkbox";
 
 interface Props {
-  onComplete: (answers: Record<string, number>, email: string, subscribe: boolean) => void;
-  onProgressChange?: (data: { current: number; total: number; onPrevious: () => void }) => void;
+  onComplete: (data: {
+    answers: Answers;
+    traitScores: TraitScoresByTrait;
+    result: ReturnType<typeof getResult>;
+    email: string;
+    subscribe: boolean;
+  }) => void;
+  onProgressChange?: (data: {
+    current: number;
+    total: number;
+    onPrevious: () => void;
+  }) => void;
 }
 
 // Fisher-Yates Shuffle Algorithm
@@ -121,9 +132,17 @@ function CMIQuestionnaire({ onComplete, onProgressChange }: Props) {
       return;
     }
 
-    // Calculate scores using original constant (IDs match)
-    const finalScores = calculateAllScores(QUESTIONS, answers);
-    onComplete(finalScores, email, subscribe);
+    // Calculate scores based on traits
+    const traitScores = calculateAllTraitScores(QUESTIONS, answers);
+    const result = getResult(traitScores);
+
+    onComplete({
+      answers,
+      traitScores,
+      result,
+      email,
+      subscribe,
+    });
   };
 
   useEffect(() => {
@@ -136,7 +155,7 @@ function CMIQuestionnaire({ onComplete, onProgressChange }: Props) {
     }
   }, [currentPage, totalPages, handlePrevious, onProgressChange]);
 
-  // If questions failed to load for some reason, safeguard
+  // Guard in case questions fail to load
   if (!questions.length) return null;
 
   return (
