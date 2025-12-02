@@ -1,4 +1,4 @@
-// tree -l 5 --ignore "node_modules,.next,.git" > structure.txt
+// tree -l 15 --ignore "node_modules,.next,.git" > structure.txt
 
 /Users/idra-hsieh/Documents/Work/SWE/serious-projects/charm-frontend
 ├── README.md
@@ -20,20 +20,35 @@
 |  |  ├── (marketing)
 |  |  |  ├── (legal)
 |  |  |  |  ├── accessibility
+|  |  |  |  |  ├── PageClient.tsx
+|  |  |  |  |  └── page.tsx
 |  |  |  |  ├── privacy
+|  |  |  |  |  ├── PageClient.tsx
+|  |  |  |  |  └── page.tsx
 |  |  |  |  └── terms
+|  |  |  |     ├── PageClient.tsx
+|  |  |  |     └── page.tsx
 |  |  |  ├── (support)
 |  |  |  |  ├── contact
+|  |  |  |  |  ├── PageClient.tsx
+|  |  |  |  |  └── page.tsx
 |  |  |  |  ├── faq
+|  |  |  |  |  ├── PageClient.tsx
+|  |  |  |  |  └── page.tsx
 |  |  |  |  └── tutorial
+|  |  |  |     ├── PageClient.tsx
+|  |  |  |     └── page.tsx
 |  |  |  ├── PageClient.tsx
 |  |  |  ├── about
 |  |  |  |  ├── PageClient.tsx
 |  |  |  |  └── page.tsx
 |  |  |  ├── cmi-test
 |  |  |  |  ├── PageClient.tsx
-|  |  |  |  ├── [code]
-|  |  |  |  └── page.tsx
+|  |  |  |  ├── page.tsx
+|  |  |  |  └── result
+|  |  |  |     └── [code]
+|  |  |  |        ├── PageClient.tsx
+|  |  |  |        └── page.tsx
 |  |  |  ├── layout.tsx
 |  |  |  ├── money-identities
 |  |  |  |  ├── PageClient.tsx
@@ -45,8 +60,12 @@
 |  |  |  └── resources
 |  |  |     ├── PageClient.tsx
 |  |  |     ├── cmi-framework
+|  |  |     |  ├── PageClient.tsx
+|  |  |     |  └── page.tsx
 |  |  |     ├── page.tsx
 |  |  |     └── prompts
+|  |  |        ├── PageClient.tsx
+|  |  |        └── page.tsx
 |  |  └── layout.tsx
 |  ├── favicon.ico
 |  ├── fonts
@@ -55,7 +74,9 @@
 |  |     ├── optima-italic.ttf
 |  |     ├── optima-medium.ttf
 |  |     └── optima-regular.ttf
-|  └── globals.css
+|  ├── globals.css
+|  ├── robots.ts
+|  └── sitemap.ts
 ├── components
 |  ├── animation
 |  |  └── PageTransition.tsx
@@ -85,6 +106,7 @@
 |  |     └── UtilityNav.tsx
 |  └── ui
 |     ├── button.tsx
+|     ├── checkbox.tsx
 |     ├── dropdown-menu.tsx
 |     ├── icons
 |     |  └── lucide-globe.tsx
@@ -159,9 +181,9 @@
 ├── structure.txt
 └── tsconfig.json
 
-directory: 1761 file: 11405
+directory: 2590 file: 26277
 
-ignored: directory (28)
+ignored: directory (32)
 
 
 [2K[1G
