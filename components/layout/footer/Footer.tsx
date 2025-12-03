@@ -5,21 +5,21 @@ import {
   Facebook,
   Instagram,
   Linkedin,
-  Twitter,
   Youtube,
+  QrCode,
   type LucideIcon,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 
-type SocialKey = "instagram" | "facebook" | "linkedin" | "x" | "youtube";
+type SocialKey = "instagram" | "facebook" | "linkedin" | "youtube" | "qrcode";
 
 const SOCIAL_ICONS: Record<SocialKey, LucideIcon> = {
   instagram: Instagram,
   facebook: Facebook,
   linkedin: Linkedin,
-  x: Twitter,
   youtube: Youtube,
+  qrcode: QrCode,
 };
 
 function Footer() {

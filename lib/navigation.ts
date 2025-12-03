@@ -65,8 +65,8 @@ export const footerSections: FooterSection[] = [
       { labelKey: "socials.instagram", href: "/placeholder" },
       { labelKey: "socials.facebook", href: "/placeholder" },
       { labelKey: "socials.linkedin", href: "/placeholder" },
-      { labelKey: "socials.x", href: "/placeholder" },
       { labelKey: "socials.youtube", href: "/placeholder" },
+      { labelKey: "socials.qrcode", href: "/placeholder" },
     ],
   },
 ];
