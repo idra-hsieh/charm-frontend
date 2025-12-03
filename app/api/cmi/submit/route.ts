@@ -3,6 +3,8 @@ import { generateUniqueCode } from "@/lib/cmi/generate-code";
 import { supabaseAdmin } from "@/lib/supabase";
 import { NextRequest, NextResponse } from "next/server";
 
+const MAX_RETRIES = 5;
+
 export async function POST(req: NextRequest) {
     try {
         // 1. Validate the request body
@@ -16,7 +18,7 @@ export async function POST(req: NextRequest) {
             );
         }
 
-        // Ensure supabaseAdmin is available (Server-side check)
+        // 2. Ensure supabaseAdmin is available (Server-side check)
         if (!supabaseAdmin) {
             console.error("Supabase Admin client not initialized");
             return NextResponse.json(
@@ -25,46 +27,85 @@ export async function POST(req: NextRequest) {
             )
         }
 
-        // 2. Generate a unique code
-        // TO_DO: In a production environment with millions of rows, create a loop to check for collisions.
-        // For now, we rely on the high entropy of the 6-char code and database unique constraints.
-        const code = generateUniqueCode();
+        // 3. Attempt to generate and insert a unique 6-character code
+        // Notes:
+        // - We rely on high entropy from nanoid to avoid collisions.
+        // - The database PRIMARY KEY constraint guarantees uniqueness.
+        // - If a rare collision occurs (Postgres error 23505),
+        //   we regenerate a new code and retry up to MAX_RETRIES times.
 
-        // 3. Prepare data for storage
-        // Mapping camelCase TypeScript properties to snake_case database columns
-        const dbPayload = {
-            code,
-            email,
-            subscribe: subscribe || false,
-            locale: locale || 'en',
-            answers,       // stored as JSONB
-            trait_scores: traitScores, // stored as JSONB, mapped from traitScores
-            result,        // stored as JSONB
-            // created_at will be handled by default value in DB or we can set it here
-        };
+        let finalCode: string | null = null;
+        let lastError: unknown = null;
 
-        // 4. Insert into Supabase
-        const { error } = await supabaseAdmin
-            .from('cmi_results')
-            .insert(dbPayload);
-        
-        if (error) {
+        interface SupabaseError {
+            code?: string;
+            message?: string;
+            details?: string;
+            hint?: string;
+        }
+
+        function isSupabaseError(err: unknown): err is SupabaseError {
+            return typeof err === "object" && err !== null && "code" in err;
+        }
+
+        for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
+            const code = generateUniqueCode();
+
+            const dbPayload = {
+                code,
+                email,
+                subscribe: subscribe || false,
+                locale: locale || "en",
+                answers, // JSONB
+                trait_scores: traitScores, // JSONB
+                result, // JSONB
+                // created_at handled by DB default
+            };
+
+            const { error } = await supabaseAdmin
+                .from("cmi_results")
+                .insert(dbPayload);
+
+            if (!error) {
+                // Successfully inserted — store the final code and break
+                finalCode = code;
+                lastError = null;
+                break;
+            }
+
+            // Duplicate key error (code collision) → regenerate and retry
+            if (isSupabaseError(error) && error.code === "23505") {
+                console.warn(`Duplicate code detected (${code}). Retrying...`);
+                lastError = error;
+                continue;
+            }
+
+            // Some other DB error occurred — abort immediately
             console.error("Supabase insertion error", error);
-            // Handle potential duplicate code error specifically if needed, 
-            // though 'nanoid' collision probability is extremely low.
             return NextResponse.json(
-                { message: 'Failed to save results' },
+                { message: "Failed to save results" },
                 { status: 500 }
             );
         }
 
-        // 5. Return the code
+
+        // 4. If all retries failed due to repeated collisions (rare)
+        if (!finalCode) {
+            console.error("Failed to generate a unique code after multiple retries:", lastError);
+            return NextResponse.json(
+                { message: "Failed to generate unique code" },
+                { status: 500 }
+            );
+        }
+
+        // 5. Return the successfully generated unique result code
         return NextResponse.json({
-            code,
-            message: "Result saved successfully"
+            code: finalCode,
+            message: "Result saved successfully",
         });
+
     } catch (error) {
-        console.error("Unexpected error in submit API: ", error);
+        console.error("Unexpected error in submit API:", error);
         return NextResponse.json(
             { message: "Internal Server Error" },
             { status: 500 }
