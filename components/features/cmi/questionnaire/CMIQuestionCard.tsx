@@ -60,14 +60,14 @@ function CMIQuestionCard({
           {/* DISAGREE label */}
         <span
             className={cn(
-              "text-accent/90 text-[11px] uppercase tracking-[0.16em] transition-all duration-200 w-[4.5rem] text-right",
+              "text-accent/90 text-[11px] uppercase tracking-[0.16em] transition-all duration-200",
               disagreeActive && "text-accent font-semibold"
             )}
         >
             {tUi('disagree')}
         </span>
           
-          <div className="flex gap-4 justify-center items-center">
+          <div className="flex gap-4 justify-center items-center mr-1 ml-1">
             {[1, 2, 3, 4, 5].map((val) => (
               <button
                 key={val}
@@ -101,7 +101,7 @@ function CMIQuestionCard({
           {/* AGREE label */}
           <span
             className={cn(
-              "text-accent/90 text-[11px] uppercase tracking-[0.16em] transition-all duration-200 w-[2.5rem] text-left",
+              "text-accent/90 text-[11px] uppercase tracking-[0.16em] transition-all duration-200",
               agreeActive && "text-accent font-semibold"
             )}
           >
