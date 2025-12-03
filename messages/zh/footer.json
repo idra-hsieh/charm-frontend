@@ -1,14 +1,14 @@
 {
   "learn": {
     "title": "學習探索",
-    "cmi_framework": "CMI 框架 (CMI Framework)",
-    "money_identities": "財務身份 (Money Identities)",
+    "cmi_framework": "CMI 框架",
+    "money_identities": "財務人格",
     "articles_guides": "文章與指南"
   },
   "tools": {
     "title": "工具應用",
     "charm_indicator": "Charm 指標",
-    "daily_companion": "日常夥伴 (Daily Companion)",
+    "daily_companion": "日常實踐",
     "reflection_prompts": "反思提示"
   },
   "support": {
@@ -25,14 +25,14 @@
   },
   "meta": {
     "copyright": "©2025 Charm.",
-    "tagline": "以清晰和同理心設計。"
+    "tagline": "以清晰和同理心設計而成。"
   },
   "socials": {
     "title": "社群媒體",
     "instagram": "Instagram",
     "facebook": "Facebook",
     "linkedin": "LinkedIn",
-    "x": "X (原 Twitter)",
+    "x": "X",
     "youtube": "YouTube"
   }
 }
