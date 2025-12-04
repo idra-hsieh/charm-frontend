@@ -67,7 +67,7 @@ function CMIResultHeader({ resultData }: Props) {
     <section className={cn(
       "relative w-full overflow-hidden rounded-b-3xl shadow-2xl",
       "bg-background text-foreground",
-      "h-[540px] md:h-[450px]"
+      "h-[560px] md:h-[450px]"
     )}>
       {/* Background */}
       <div className="absolute inset-0 bg-marble bg-cover bg-center z-0" />

@@ -31,48 +31,38 @@ function TypeSlide({ result, avatarSrc }: Props) {
 
       {/* Main layout */}
       <div className="grid w-full max-w-4xl mx-auto gap-y-6 gap-x-8 grid-cols-1 md:grid-cols-[minmax(0,1.1fr)_auto_minmax(0,1.1fr)] md:items-center">
-
-        {/* ---------------- LEFT SIDE ---------------- */}
-        <div className="flex flex-col w-full self-center mb-2 md:mb-8 space-y-8 md:space-y-10 items-center md:items-start">
-          
+        {/* ---------------- LEFT SIDE (Desktop only) ---------------- */}
+        <div className="hidden md:flex flex-col w-full self-center mb-8 space-y-10 text-xs tracking-wide">
           {/* Group 1: Indicator */}
-          <div className="flex flex-col w-full md:max-w-none">
-            {/* Left-aligned text on desktop */}
-            <div className="flex items-baseline justify-center md:justify-start gap-1 text-xs tracking-wide text-center md:text-left">
-              <span className="uppercase md:text-foreground/60 md:font-normal text-foreground/50 font-semibold">
+          <div className="flex flex-col w-full">
+            <div className="flex items-baseline justify-start gap-1 text-xs tracking-wide text-left">
+              <span className="uppercase text-foreground/60">
                 {tUi("result_header_bits")}
               </span>
               <span className="font-semibold text-accent">{typeBits}</span>
             </div>
-
-            {/* Top line: same width as bottom, but shifted LEFT on desktop */}
-            <div className="mt-2 h-[0.5px] w-full 
-                bg-gradient-to-r from-accent to-foreground/40
-                md:translate-x-[-8px] md:w-[calc(100%-8px)]" />
+            <div className="mt-2 h-[0.5px] w-full bg-gradient-to-r from-accent to-foreground/40 translate-x-[-8px] w-[calc(100%-8px)]" />
           </div>
 
           {/* Group 2: Pattern Family */}
-          <div className="flex flex-col w-full md:max-w-none">
-            <div className="md:translate-x-[16px]">
-                {/* Left-aligned text on desktop */}
-                <div className="flex items-baseline justify-center md:justify-start gap-1 text-xs tracking-wide text-center md:text-left">
-                <span className="uppercase md:text-foreground/60 md:font-normal text-foreground/50 font-semibold">
-                    {tUi("result_header_family")}
+          <div className="flex flex-col w-full">
+            <div className="translate-x-[16px]">
+              <div className="flex items-baseline justify-start gap-1 text-xs tracking-wide text-left">
+                <span className="uppercase text-foreground/60">
+                  {tUi("result_header_family")}
                 </span>
                 <span className="font-semibold text-accent">
-                    {tFamilies(`${familyBits}.name`)}
+                  {tFamilies(`${familyBits}.name`)}
                 </span>
-                </div>
-
-                {/* Bottom line: same width as top, but shifted RIGHT on desktop */}
-                <div className="mt-2 h-[0.5px] w-full 
-                    bg-gradient-to-r from-foreground/50 to-accent" />
+              </div>
+              <div className="mt-2 h-[0.5px] w-full bg-gradient-to-r from-foreground/50 to-accent" />
             </div>
           </div>
         </div>
 
-        {/* ---------------- CENTER AVATAR ---------------- */}
-        <div className="flex items-center justify-center self-center order-first md:order-none">
+        {/* ---------------- CENTER AVATAR + MOBILE CONTENT ---------------- */}
+        <div className="flex flex-col items-center justify-center self-center order-first md:order-none gap-4">
+          {/* Avatar */}
           <div className="relative w-32 h-32 md:w-48 md:h-48 drop-shadow-2xl">
             <Image
               src={avatarSrc}
@@ -82,30 +72,51 @@ function TypeSlide({ result, avatarSrc }: Props) {
               priority
             />
           </div>
+
+          {/* Mobile: stacked info under avatar */}
+          <div className="flex flex-col w-full text-xs tracking-wide space-y-3 md:hidden">
+            {/* Bits */}
+            <div className="flex flex-col items-center text-center gap-1 mb-4">
+              <span className="uppercase text-[0.7rem] text-foreground/60 mb-1">
+                {tUi("result_header_bits")}
+              </span>
+              <div className="h-[0.5px] w-full max-w-xs bg-gradient-to-r from-accent to-foreground/40 mb-1" />
+              <span className="block max-w-xs mx-auto font-semibold text-accent text-balance break-words">
+                {typeBits}
+              </span>
+            </div>
+
+            {/* Family */}
+            <div className="flex flex-col items-center text-center gap-1 mb-5">
+              <span className="uppercase text-[0.7rem] text-foreground/60 mb-1">
+                {tUi("result_header_family")}
+              </span>
+              <div className="h-[0.5px] w-full max-w-xs bg-gradient-to-r from-foreground/50 to-accent mb-1" />
+              <span className="block max-w-xs mx-auto font-semibold text-accent text-balance break-words">
+                {tFamilies(`${familyBits}.name`)}
+              </span>
+            </div>
+
+            {/* Growth */}
+            <div className="flex flex-col items-center text-center gap-1">
+              <span className="uppercase text-[0.7rem] text-foreground/60 mb-1">
+                {tUi("result_header_growth")}
+              </span>
+              <div className="h-[0.5px] w-full max-w-xs bg-gradient-to-r from-accent to-foreground/40 mb-1" />
+              <span className="block max-w-xs mx-auto font-semibold text-accent text-balance break-words">
+                {tFamilies(`${familyBits}.growthDirection`)}
+              </span>
+            </div>
+          </div>
         </div>
 
-        {/* ---------------- RIGHT SIDE ---------------- */}
-        <div className="flex flex-col w-full self-center text-xs tracking-wide">
-
-          {/* Mobile: inline layout */}
-          <div className="flex justify-center md:hidden items-baseline gap-1 text-center">
-            <span className="text-foreground/50 font-semibold">
-              {tUi("result_header_growth")}
-            </span>
-            <span className="font-semibold text-accent">
-              {tFamilies(`${familyBits}.growthDirection`)}
-            </span>
-          </div>
-
-          <div className="h-[0.5px] w-full bg-gradient-to-r from-accent to-foreground/40 my-2 md:hidden" />
-
-          {/* Desktop: fully right-aligned */}
-          <div className="hidden md:flex flex-col items-end space-y-2">
+        {/* ---------------- RIGHT SIDE (Desktop only) ---------------- */}
+        <div className="hidden md:flex flex-col w-full self-center text-xs tracking-wide">
+          <div className="flex flex-col items-end space-y-2">
             <span className="uppercase text-foreground/60">
               {tUi("result_header_growth")}
             </span>
 
-            {/* Line aligned to the RIGHT */}
             <div className="h-[0.5px] w-full bg-gradient-to-l from-accent to-foreground/40" />
 
             <span className="font-semibold text-accent italic text-right">
@@ -113,7 +124,6 @@ function TypeSlide({ result, avatarSrc }: Props) {
             </span>
           </div>
         </div>
-
       </div>
     </div>
   );
