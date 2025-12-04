@@ -13,5 +13,20 @@
   "email_placeholder": "name@example.com",
   "reveal_results": "結果を見る",
   "marketing_consent": "Charmからの最新情報やニュースを受け取る（いつでも解除できます）",
-  "warning_email": "有効なメールアドレスをご入力の上、同意のチェックをお願いいたします。"
+  "warning_email": "有効なメールアドレスをご入力の上、同意のチェックをお願いいたします。",
+
+  "result_header_type_title": "あなたのお金のタイプ：",
+  "result_header_bits": "指標：",
+  "result_header_family": "タイプ分類：",
+  "result_header_growth": "成長の方向性：",
+  "result_header_family_title": "あなたのタイプ分類：",
+  "result_header_essence": "本質：",
+  "result_header_strategy": "進め方：",
+  "result_header_create_account": "Charm に登録する",
+  "result_header_test_code": "テストコード：",
+  "result_header_create_account_info": "結果は自動でアカウントに紐づきます。",
+  "result_header_test_code_info": "コード送信済み。再表示・連携に使用。",
+  "result_content_1": "1. タイプの特徴",
+  "result_content_2": "2. 成長の方向性",
+  "result_content_3": "3. 次にすべきこと"
 }

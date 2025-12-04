@@ -13,5 +13,20 @@
   "email_placeholder": "name@example.com",
   "reveal_results": "See My Results",
   "marketing_consent": "Receive updates and news from Charm (unsubscribe anytime).",
-  "warning_email": "Please provide a valid email and accept the subscription to continue."
+  "warning_email": "Please provide a valid email and accept the subscription to continue.",
+
+  "result_header_type_title": "Your Money Type is:",
+  "result_header_bits": "INDICATOR:",
+  "result_header_family": "PATTERN FAMILY:",
+  "result_header_growth": "GROWTH DIRECTION:",
+  "result_header_family_title": "Your Pattern Family is:",
+  "result_header_essence": "ESSENCE:",
+  "result_header_strategy": "STRATEGY:",
+  "result_header_create_account": "Create an account with Charm",
+  "result_header_test_code": "TEST CODE: ",
+  "result_header_create_account_info": "Result auto-links to your account.",
+  "result_header_test_code_info": "Code emailed. Use to reload or link.",
+  "result_content_1": "1. Type Insights",
+  "result_content_2": "2. Growth Direction",
+  "result_content_3": "3. What to Do Next"
 }
