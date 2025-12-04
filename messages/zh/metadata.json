@@ -2,103 +2,103 @@
   "default": {
     "title": "Charm",
     "title_template": "%s | Charm",
-    "description": "Discover your financial personality with the Charm Money Indicator®. Charm is a financial educational system offering personalized tracking and advice to align your money with your life philosophy.",
-    "keywords": "Financial Personality Test, Charm Money Indicator, CMI-I, Financial Tracking, Money Psychology, Financial Advice, Life Philosophy",
+    "description": "透過 Charm Money Indicator® 探索你的金錢性格。Charm 是一套金融教育系統，提供個人化追蹤與建議，協助你讓金錢與人生哲學更加一致。",
+    "keywords": "財務性格測驗, Charm Money Indicator, CMI-I, 財務追蹤, 金錢心理, 財務建議, 人生哲學",
     "open_graph": {
       "site_name": "Charm",
-      "locale": "en_US"
+      "locale": "zh_TW"
     }
   },
-  
+
   "app": {
     "dashboard": {
-      "title": "Dashboard",
-      "description": "View your financial overview, recent activities, and progress towards your goals."
+      "title": "控制台",
+      "description": "查看你的財務概況、近期活動與目標進度。"
     }
   },
 
   "auth": {
     "login": {
-      "title": "Log In",
-      "description": "Log in to your Charm account to access your financial insights."
+      "title": "登入",
+      "description": "登入你的 Charm 帳戶以查看財務洞察。"
     },
     "signup": {
-      "title": "Sign Up",
-      "description": "Create a new Charm account and start your journey to financial clarity."
+      "title": "註冊",
+      "description": "建立新帳戶，開始你的財務澄明之旅。"
     }
   },
 
   "marketing": {
     "home": {
-      "title": "Charm | Where your money and life philosophy align.",
-      "description": "The best app to understand your relationship with money through psychology and data."
+      "title": "Charm | 讓你的金錢與人生哲學對齊。",
+      "description": "最能透過心理學與數據了解你與金錢關係的 App。"
     },
     "about": {
       "title": "The Charm App",
-      "description": "Learn about the philosophy and team behind Charm's mission to redefine financial wellness."
+      "description": "了解 Charm 的理念與團隊，以及我們重新定義財務健康的使命。"
     },
     "money_identities": {
-      "title": "Money Identities",
-      "description": "Explore the different Money Identity archetypes and understand their strengths and challenges."
+      "title": "金錢性格",
+      "description": "探索不同的金錢性格原型，理解其優勢與挑戰。"
     },
     "placeholder": {
-      "title": "Coming Soon",
-      "description": "This feature is currently under development."
+      "title": "即將推出",
+      "description": "這項功能正在開發中。"
     },
-    
+
     "legal": {
       "accessibility": {
-        "title": "Accessibility Statement",
-        "description": "Our commitment to making Charm accessible to everyone."
+        "title": "無障礙聲明",
+        "description": "我們致力於讓 Charm 對所有人都更加友善。"
       },
       "privacy": {
-        "title": "Privacy Policy",
-        "description": "How we collect, use, and protect your personal data."
+        "title": "隱私政策",
+        "description": "我們如何收集、使用並保護你的個人資料。"
       },
       "terms": {
-        "title": "Terms and Conditions",
-        "description": "The rules and regulations for using Charm."
+        "title": "服務條款",
+        "description": "使用 Charm 的規則與條款。"
       }
     },
-    
+
     "support": {
       "contact": {
-        "title": "Contact Us",
-        "description": "Get in touch with the Charm support team for help or inquiries."
+        "title": "聯絡我們",
+        "description": "如需協助或有任何問題，歡迎聯絡 Charm 支援團隊。"
       },
       "faq": {
-        "title": "Frequently Asked Questions",
-        "description": "Answers to common questions about the CMI test, account management, and billing."
+        "title": "常見問題",
+        "description": "關於 CMI 測驗、帳戶管理、付費等常見疑問解答。"
       },
       "tutorial": {
-        "title": "Tutorials",
-        "description": "Step-by-step guides to help you use Charm effectively."
+        "title": "使用教學",
+        "description": "逐步指南，協助你更有效地使用 Charm。"
       }
     },
 
     "resources": {
       "index": {
-        "title": "Resources",
-        "description": "Curated guides, articles, and tools for your financial growth."
+        "title": "資源中心",
+        "description": "精選指南、文章與工具，支持你的財務成長。"
       },
       "cmi_framework": {
-        "title": "CMI Framework",
-        "description": "Deep dive into the core framework of Money Identities and how it works."
+        "title": "CMI 理論架構",
+        "description": "深入了解金錢性格核心模型與運作方式。"
       },
       "prompts": {
-        "title": "Journaling Prompts",
-        "description": "Reflective prompts designed to improve your financial mindset and habits."
+        "title": "日記引導題",
+        "description": "反思式提問，協助改善你的金錢心態與習慣。"
       }
     },
 
     "cmi_test": {
       "index": {
-        "title": "Money Identity Test",
-        "description": "Discover your core Money Identity in just 5 minutes with our CMI-I assessment."
+        "title": "金錢性格測驗",
+        "description": "透過 CMI-I 測評，在 5 分鐘內找出你的核心金錢性格。"
       },
       "result": {
-        "title": "Your Test Results",
-        "description": "Detailed analysis of your Money Identity, strengths, and personalized advice."
+        "title": "你的測驗結果",
+        "description": "分析你的金錢性格、優勢與專屬建議。"
       }
     }
   }
