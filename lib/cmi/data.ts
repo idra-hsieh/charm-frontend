@@ -51,51 +51,67 @@ export const MONEY_TYPES: MoneyIdentity[] = [
 // 3. Questions
 export const QUESTIONS: Question[] = [
   // (1) Closeness Scale
+  // Low End: Avoidant
   { id: "cl1", trait: "closeness", pole: "low" },
   { id: "cl2", trait: "closeness", pole: "low" },
+  { id: "cl6", trait: "closeness", pole: "low" },
   // High End: Anxious
   { id: "cl3", trait: "closeness", pole: "high" },
   { id: "cl4", trait: "closeness", pole: "high" },
   { id: "cl5", trait: "closeness", pole: "high" },
+  { id: "cl7", trait: "closeness", pole: "high" },
+  { id: "cl8", trait: "closeness", pole: "high" },
 
   // (2) Control Scale
   // Low End: Helpless
   { id: "co1", trait: "control", pole: "low" },
   { id: "co2", trait: "control", pole: "low" },
+  { id: "co6", trait: "control", pole: "low" },
+  { id: "co7", trait: "control", pole: "low" },
   // High End: Vigilant
   { id: "co3", trait: "control", pole: "high" },
   { id: "co4", trait: "control", pole: "high" },
   { id: "co5", trait: "control", pole: "high" },
+  { id: "co8", trait: "control", pole: "high" },
 
   // (3) Self-worth Scale
   // Low End: Insecure
   { id: "sw1", trait: "selfWorth", pole: "low" },
   { id: "sw2", trait: "selfWorth", pole: "low" },
+  { id: "sw6", trait: "selfWorth", pole: "low" },
   // High End: Prideful
   { id: "sw3", trait: "selfWorth", pole: "high" },
   { id: "sw4", trait: "selfWorth", pole: "high" },
   { id: "sw5", trait: "selfWorth", pole: "high" },
+  { id: "sw7", trait: "selfWorth", pole: "high" },
+  { id: "sw8", trait: "selfWorth", pole: "high" },
 
   // (4) Boundary Scale
   // Low End: Compliant
   { id: "bo1", trait: "boundary", pole: "low" },
   { id: "bo2", trait: "boundary", pole: "low" },
+  { id: "bo6", trait: "boundary", pole: "low" },
   // High End: Guarded
   { id: "bo3", trait: "boundary", pole: "high" },
   { id: "bo4", trait: "boundary", pole: "high" },
   { id: "bo5", trait: "boundary", pole: "high" },
+  { id: "bo7", trait: "boundary", pole: "high" },
+  { id: "bo8", trait: "boundary", pole: "high" },
 
   // (5) Growth Scale
   // Low End: Settled
   { id: "gr1", trait: "growth", pole: "low" },
   { id: "gr2", trait: "growth", pole: "low" },
+  { id: "gr6", trait: "growth", pole: "low" },
+  { id: "gr7", trait: "growth", pole: "low" },
   // High End: Driven
   { id: "gr3", trait: "growth", pole: "high" },
   { id: "gr4", trait: "growth", pole: "high" },
   { id: "gr5", trait: "growth", pole: "high" },
-]
+  { id: "gr8", trait: "growth", pole: "high" },
+];
 
-export const PAGE_SIZE = 5;
+export const PAGE_SIZE = 8;
 
 // Trait array
 export const TRAITS: Trait[] = [
