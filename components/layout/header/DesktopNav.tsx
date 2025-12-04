@@ -16,7 +16,7 @@ function DesktopNav({ className }: DesktopNavProps) {
   return (
     <nav
       className={cn(
-        "flex items-center gap-6", // display behavior handled by parent (e.g. hidden nav:flex)
+        "flex items-center gap-3", // display behavior handled by parent (e.g. hidden nav:flex)
         className
       )}
     >
