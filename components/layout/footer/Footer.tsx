@@ -99,7 +99,7 @@ function Footer() {
                         className="flex h-10 w-10 items-center justify-center rounded-full border border-transparent bg-primary/5 text-primary/70 transition duration-200 ease-out hover:-translate-y-[2px] active:-translate-y-[2px] hover:border-accent/60 active:border-accent/60 hover:bg-accent/10 active:bg-accent/10 hover:text-primary active:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent/60"
                         title={label}
                       >
-                        <Icon className="h-5 w-5" strokeWidth={1.75} />
+                        <Icon className="h-5 w-5 transition-colors duration-200 group-hover:text-accent" strokeWidth={1.75} />
                       </Link>
 
                       <span className="pointer-events-none absolute left-1/2 top-[-44px] -translate-x-1/2 rounded-full bg-primary text-sm text-primary-foreground px-3 py-1 opacity-0 shadow-md transition duration-200 ease-out group-hover:translate-y-1 group-hover:opacity-100">
