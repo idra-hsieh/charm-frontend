@@ -117,7 +117,7 @@ function CMIResultHeader({ resultData }: Props) {
 
         {/* Dots + CTA */}
         <TooltipProvider>
-          <div className="flex flex-col items-center gap-4 text-center sm:mt-6 md:mt-0">
+          <div className="flex flex-col items-center gap-4 text-center mt-6 md:mt-0">
             {/* Button row */}
             <div className="relative flex justify-center">
               <Button
@@ -169,7 +169,7 @@ function CMIResultHeader({ resultData }: Props) {
                 <TooltipTrigger asChild>
                   <Info
                     size={14}
-                    className="absolute -right-6 top-1/2 -translate-y-1/2 text-foreground/40 hover:text-accent transition-colors cursor-pointer"
+                    className="absolute -right-7 top-1/2 -translate-y-1/2 text-foreground/40 hover:text-accent transition-colors cursor-pointer"
                   />
                 </TooltipTrigger>
                 <TooltipContent

@@ -22,6 +22,7 @@ function FamilySlide({ result, badgeSrc }: Props) {
       <div className="text-center">
         <p className="mb-2 text-xs font-semibold text-foreground/60 tracking-[0.18em]">
           {tUi("result_header_family_title")}
+          {" :"}
         </p>
         <h1 className="text-2xl md:text-3xl font-black font-primary tracking-wide text-foreground/95 leading-tight">
           {tFamilies(`${result.family.bits}.name`)}
@@ -36,6 +37,7 @@ function FamilySlide({ result, badgeSrc }: Props) {
           <div className="flex flex-col items-start space-y-2">
             <span className="uppercase text-foreground/60">
               {tUi("result_header_essence")}
+              {" :"}
             </span>
 
             {/* Line aligned to the LEFT */}
@@ -97,6 +99,7 @@ function FamilySlide({ result, badgeSrc }: Props) {
             <div className="flex items-baseline justify-end space-x-1">
               <span className="uppercase text-foreground/60">
                 {tUi("result_header_strategy")}
+                {" :"}
               </span>
 
               <span className="font-semibold text-accent">

@@ -23,6 +23,7 @@ function TypeSlide({ result, avatarSrc }: Props) {
       <div className="text-center">
         <p className="mb-2 text-xs font-semibold text-foreground/60 tracking-[0.18em]">
           {tUi("result_header_type_title")}
+          {" :"}
         </p>
         <h1 className="text-2xl md:text-3xl font-black font-primary tracking-wide text-foreground/95 leading-tight">
           {tTypes(`${result.type.id}.name`)}
@@ -38,6 +39,7 @@ function TypeSlide({ result, avatarSrc }: Props) {
             <div className="flex items-baseline justify-start gap-1 text-xs tracking-wide text-left">
               <span className="uppercase text-foreground/60">
                 {tUi("result_header_bits")}
+                {" :"}
               </span>
               <span className="font-semibold text-accent">{typeBits}</span>
             </div>
@@ -50,6 +52,7 @@ function TypeSlide({ result, avatarSrc }: Props) {
               <div className="flex items-baseline justify-start gap-1 text-xs tracking-wide text-left">
                 <span className="uppercase text-foreground/60">
                   {tUi("result_header_family")}
+                  {" :"}
                 </span>
                 <span className="font-semibold text-accent">
                   {tFamilies(`${familyBits}.name`)}
@@ -115,6 +118,7 @@ function TypeSlide({ result, avatarSrc }: Props) {
           <div className="flex flex-col items-end space-y-2">
             <span className="uppercase text-foreground/60">
               {tUi("result_header_growth")}
+              {" :"}
             </span>
 
             <div className="h-[0.5px] w-full bg-gradient-to-l from-accent to-foreground/40" />
