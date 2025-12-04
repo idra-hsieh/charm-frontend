@@ -24,15 +24,15 @@ function FamilySlide({ result, badgeSrc }: Props) {
           {tUi("result_header_family_title")}
           {" :"}
         </p>
-        <h1 className="text-2xl md:text-3xl font-black font-primary tracking-wide text-foreground/95 leading-tight">
+        <h1 className="text-2xl slide:text-3xl font-black font-primary tracking-wide text-foreground/95 leading-tight">
           {tFamilies(`${result.family.bits}.name`)}
         </h1>
       </div>
 
       {/* Main layout */}
-      <div className="grid w-full max-w-4xl mx-auto gap-y-6 gap-x-8 grid-cols-1 md:grid-cols-[minmax(0,1.1fr)_auto_minmax(0,1.1fr)] md:items-center">
+      <div className="grid w-full max-w-4xl mx-auto gap-y-6 gap-x-8 grid-cols-1 slide:grid-cols-[minmax(0,1.1fr)_auto_minmax(0,1.1fr)] slide:items-center">
         {/* ---------------- LEFT SIDE (Desktop only) ---------------- */}
-        <div className="hidden md:flex flex-col w-full self-center text-xs tracking-wide">
+        <div className="hidden slide:flex flex-col w-full self-center text-xs tracking-wide">
           {/* Desktop: fully left-aligned */}
           <div className="flex flex-col items-start space-y-2">
             <span className="uppercase text-foreground/60">
@@ -50,9 +50,9 @@ function FamilySlide({ result, badgeSrc }: Props) {
         </div>
 
         {/* ---------------- CENTER AVATAR + MOBILE CONTENT ---------------- */}
-        <div className="flex flex-col items-center justify-center self-center order-first md:order-none gap-4">
+        <div className="flex flex-col items-center justify-center self-center order-first slide:order-none gap-4">
           {/* Avatar */}
-          <div className="relative w-32 h-32 md:w-48 md:h-48 drop-shadow-2xl">
+          <div className="relative w-32 h-32 slide:w-48 slide:h-48 drop-shadow-2xl">
             <Image
               src={badgeSrc}
               alt={tTypes(`${result.type.id}.name`)}
@@ -63,7 +63,7 @@ function FamilySlide({ result, badgeSrc }: Props) {
           </div>
 
           {/* Mobile: stacked info under avatar */}
-          <div className="flex flex-col w-full text-xs tracking-wide space-y-3 md:hidden">
+          <div className="flex flex-col w-full text-xs tracking-wide space-y-3 slide:hidden">
             {/* Essence */}
             <div className="flex flex-col items-center text-center gap-1 mb-6">
               <span className="uppercase text-[0.7rem] text-foreground/60 mb-1">
@@ -92,7 +92,7 @@ function FamilySlide({ result, badgeSrc }: Props) {
         </div>
 
         {/* ---------------- RIGHT SIDE (Desktop only) ---------------- */}
-        <div className="hidden md:flex flex-col w-full self-center text-xs tracking-wide">
+        <div className="hidden slide:flex flex-col w-full self-center text-xs tracking-wide">
           {/* Desktop: fully right-aligned */}
           <div className="flex flex-col items-end space-y-2">
             {/* Title + Strategy on the same line */}

@@ -25,15 +25,15 @@ function TypeSlide({ result, avatarSrc }: Props) {
           {tUi("result_header_type_title")}
           {" :"}
         </p>
-        <h1 className="text-2xl md:text-3xl font-black font-primary tracking-wide text-foreground/95 leading-tight">
+        <h1 className="text-2xl slide:text-3xl font-black font-primary tracking-wide text-foreground/95 leading-tight">
           {tTypes(`${result.type.id}.name`)}
         </h1>
       </div>
 
       {/* Main layout */}
-      <div className="grid w-full max-w-4xl mx-auto gap-y-6 gap-x-8 grid-cols-1 md:grid-cols-[minmax(0,1.1fr)_auto_minmax(0,1.1fr)] md:items-center">
+      <div className="grid w-full max-w-4xl mx-auto gap-y-6 gap-x-8 grid-cols-1 slide:grid-cols-[minmax(0,1.1fr)_auto_minmax(0,1.1fr)] slide:items-center">
         {/* ---------------- LEFT SIDE (Desktop only) ---------------- */}
-        <div className="hidden md:flex flex-col w-full self-center mb-8 space-y-10 text-xs tracking-wide">
+        <div className="hidden slide:flex flex-col w-full self-center mb-8 space-y-10 text-xs tracking-wide">
           {/* Group 1: Indicator */}
           <div className="flex flex-col w-full">
             <div className="flex items-baseline justify-start gap-1 text-xs tracking-wide text-left">
@@ -64,9 +64,9 @@ function TypeSlide({ result, avatarSrc }: Props) {
         </div>
 
         {/* ---------------- CENTER AVATAR + MOBILE CONTENT ---------------- */}
-        <div className="flex flex-col items-center justify-center self-center order-first md:order-none gap-4">
+        <div className="flex flex-col items-center justify-center self-center order-first slide:order-none gap-4">
           {/* Avatar */}
-          <div className="relative w-32 h-32 md:w-48 md:h-48 drop-shadow-2xl">
+          <div className="relative w-32 h-32 slide:w-48 slide:h-48 drop-shadow-2xl">
             <Image
               src={avatarSrc}
               alt={tTypes(`${result.type.id}.name`)}
@@ -77,7 +77,7 @@ function TypeSlide({ result, avatarSrc }: Props) {
           </div>
 
           {/* Mobile: stacked info under avatar */}
-          <div className="flex flex-col w-full text-xs tracking-wide space-y-3 md:hidden">
+          <div className="flex flex-col w-full text-xs tracking-wide space-y-3 slide:hidden">
             {/* Bits */}
             <div className="flex flex-col items-center text-center gap-1 mb-4">
               <span className="uppercase text-[0.7rem] text-foreground/60 mb-1">
@@ -114,7 +114,7 @@ function TypeSlide({ result, avatarSrc }: Props) {
         </div>
 
         {/* ---------------- RIGHT SIDE (Desktop only) ---------------- */}
-        <div className="hidden md:flex flex-col w-full self-center text-xs tracking-wide">
+        <div className="hidden slide:flex flex-col w-full self-center text-xs tracking-wide">
           <div className="flex flex-col items-end space-y-2">
             <span className="uppercase text-foreground/60">
               {tUi("result_header_growth")}
