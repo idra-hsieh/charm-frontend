@@ -4,55 +4,63 @@
     "essence": "穏やか・超然・想像力 — 一歩引くことでプレッシャーを回避する。",
     "tension": "行動からの乖離。",
     "growthDirection": "緩やかな関わりへと歩み出す。",
-    "strategy": "ゆっくりと踏み出す"
+    "strategy": "ゆっくりと踏み出す",
+    "strategyDescription": "小さく、目に見える行動で安全感を築く。"
   },
   "001": {
     "name": "理想家",
     "essence": "寛大・表現豊か・道徳的 — お金に理想を投影する。",
     "tension": "「善」をなしたいが、現実から遊離してしまう。",
     "growthDirection": "小さな現実的なステップでビジョンを接地させる。",
-    "strategy": "ビジョンを現実にする"
+    "strategy": "ビジョンを現実にする",
+    "strategyDescription": "価値観を、具体的な一つの習慣に落とし込む。"
   },
   "010": {
     "name": "管理者",
     "essence": "正確・構造的・安全志向 — コントロールに安らぎを見出す。",
     "tension": "過剰管理と混乱への恐れ。",
     "growthDirection": "柔軟性と信頼を学ぶ。",
-    "strategy": "流れを信頼する"
+    "strategy": "流れを信頼する",
+    "strategyDescription": "すべてを管理せず、一つの仕組みに“余白”を与える。"
   },
   "011": {
     "name": "評価者",
     "essence": "秩序・意見を持つ — 規律や正しさで価値を定義する。",
     "tension": "批判的・融通が利かない。",
     "growthDirection": "批判を好奇心に置き換える。",
-    "strategy": "判断する前に問う"
+    "strategy": "判断する前に問う",
+    "strategyDescription": "一日のうち一度だけ、判断を“問い”に置き換えてみる。"
   },
   "100": {
     "name": "共感者",
     "essence": "温厚・受容的・つながり重視 — 与えることや所属にアイデンティティを見出す。",
     "tension": "自尊心が他者の承認に依存している。",
     "growthDirection": "自己信頼に安心の錨を下ろす。",
-    "strategy": "寛容さの軸を自分に置く"
+    "strategy": "寛容さの軸を自分に置く",
+    "strategyDescription": "義務感ではなく、“選択”から与えるようにする。"
   },
   "101": {
     "name": "表現者",
     "essence": "カリスマ・表現力・ステータス意識 — 成功やライフスタイルで承認を求める。",
     "tension": "本物であることよりイメージを優先。",
     "growthDirection": "比較せずに創造性を表現する。",
-    "strategy": "舞台なしで輝く"
+    "strategy": "舞台なしで輝く",
+    "strategyDescription": "発信より先に、まずは“ひっそり創る”ことを大事にする。"
   },
   "110": {
     "name": "守護者",
     "essence": "責任感・保護・忠実 — 提供や管理をすることで最も安心する。",
     "tension": "抱え込みすぎ・過剰な負担。",
     "growthDirection": "コントロールを分かち合い、他者の能力を信じる。",
-    "strategy": "重荷を下ろす"
+    "strategy": "重荷を下ろす",
+    "strategyDescription": "小さな一つの役割を、誰かに任せてみる。"
   },
   "111": {
     "name": "建設者",
     "essence": "ビジョナリー・意欲的・革新的 — お金を創造のエネルギーと見る。",
     "tension": "過労、および達成とアイデンティティの融合。",
     "growthDirection": "熟達（マスタリー）を調和と意味として再定義する。",
-    "strategy": "成功を再定義する"
+    "strategy": "成功を再定義する",
+    "strategyDescription": "成果ではなく、“心の平穏”を基準に評価する。"
   }
 }
