@@ -10,7 +10,6 @@ import { useState } from "react";
 import TypeSlide from "./header-slides/TypeSlide";
 import FamilySlide from "./header-slides/FamilySlide";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { TooltipArrow } from "@radix-ui/react-tooltip";
 
 interface Props {
   resultData: StoredCMIResult;
@@ -68,8 +67,7 @@ function CMIResultHeader({ resultData }: Props) {
     <section className={cn(
       "relative w-full overflow-hidden rounded-b-3xl shadow-2xl",
       "bg-background text-foreground",
-      "min-h-[520px] sm:min-h-[540px]",
-      "md:h-[450px]"
+      "h-[540px] md:h-[450px]"
     )}>
       {/* Background */}
       <div className="absolute inset-0 bg-marble bg-cover bg-center z-0" />
@@ -119,7 +117,7 @@ function CMIResultHeader({ resultData }: Props) {
 
         {/* Dots + CTA */}
         <TooltipProvider>
-          <div className="flex flex-col items-center gap-4 text-center mt-7 md:mt-0">
+          <div className="flex flex-col items-center gap-4 text-center sm:mt-6 md:mt-0">
             {/* Button row */}
             <div className="relative flex justify-center">
               <Button
@@ -150,7 +148,7 @@ function CMIResultHeader({ resultData }: Props) {
             </div>
 
             {/* Code row */}
-            <div className="relative flex justify-center text-xs font-mono text-foreground/50 uppercase mb-1">
+            <div className="relative flex justify-center md:font-normal font-semibold text-xs font-mono text-foreground/50 uppercase mb-1">
               {/* main content that should be centered */}
               <div className="flex items-center gap-2">
                 <span>{tUi("result_header_test_code")}</span>
