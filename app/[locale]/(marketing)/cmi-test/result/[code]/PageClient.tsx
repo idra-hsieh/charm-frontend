@@ -13,7 +13,7 @@ interface Props {
 
 export default function PageClient({ resultData }: Props) {
   return (
-    <main className="min-h-screen w-full bg-background text-foreground pb-20">
+    <main className="min-h-screen w-full bg-gradient-to-b from-[#050505] to-[#40403F] text-foreground pb-20">
        <div className="w-full">
           {/* 1. Header Section */}
           <div className="mb-12">
