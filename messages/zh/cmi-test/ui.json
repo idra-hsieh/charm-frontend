@@ -15,6 +15,15 @@
   "marketing_consent": "接收 Charm 的最新消息與更新（可隨時取消訂閱）。",
   "warning_email": "請輸入有效的 Email 並勾選同意選項以繼續。",
 
+  "result_email_title": "您的 Charm Money Indicator® 結果",
+  "result_email_date": "測驗日期",
+  "result_email_code": "測驗代碼",
+  "result_email_type": "您的金錢人格與家族類型",
+  "result_email_family": "類型族群",
+  "result_email_scores": "特質分佈",
+  "result_email_footer": "使用這組代碼可隨時回來查看結果。",
+  "result_email_view_report": "查看完整結果",
+
   "result_header_type_title": "您的金錢類型是",
   "result_header_bits": "指標",
   "result_header_family": "所屬族群",

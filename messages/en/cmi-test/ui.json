@@ -50,5 +50,14 @@
   "result_footer_label_code": "TEST CODE",
   "result_footer_label_type": "RESULT TYPE",
   "result_footer_label_family": "PATTERN FAMILY",
-  "result_footer_label_scores": "SCORES"
+  "result_footer_label_scores": "SCORES",
+
+  "result_email_title": "Your Charm Money Indicator® Results",
+  "result_email_date": "Assessment Date",
+  "result_email_code": "Test Code",
+  "result_email_type": "Your Money Personality & Family Pattern",
+  "result_email_family": "Pattern Family",
+  "result_email_scores": "Trait Breakdown",
+  "result_email_footer": "Your code lets you revisit your results anytime.",
+  "result_email_view_report": "See Full Result"
 }

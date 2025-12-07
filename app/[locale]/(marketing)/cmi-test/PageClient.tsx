@@ -56,6 +56,29 @@ function CMITestPage() {
 
       const { code } = await response.json();
 
+      try {
+        const emailResponse = await fetch("/api/cmi/send-result", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: data.email,
+            locale,
+            code,
+            result: data.result,
+            traitScores: data.traitScores,
+            createdAt: Date.now(),
+          }),
+        });
+
+        if (!emailResponse.ok) {
+          console.warn("Email send failed", await emailResponse.json());
+        }
+      } catch (emailError) {
+        console.error("Email send error: ", emailError);
+      }
+
       // 3. Redirect to the result page using the unique code
       router.push(`/cmi-test/result/${code}`);
 

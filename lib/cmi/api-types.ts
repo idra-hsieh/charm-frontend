@@ -6,6 +6,7 @@ export type CMIResultData = {
     // 1. User submitted information
     email: string;
     subscribe: boolean;
+    locale?: string;
 
     // 2. Calculated test result data
     answers: Answers;
