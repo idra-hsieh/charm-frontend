@@ -18,7 +18,7 @@ interface Props {
 
 const TRAITS = ["closeness", "control", "selfWorth", "boundary", "growth"] as const;
 
-// Shared styles for UI consistency
+// Design System: Button styles shared with CMIQuestionnaire for visual consistency
 const BUTTON_BASE_STYLES = cn(
   "inline-flex items-center justify-center gap-2",
   "rounded-xl px-8 py-5 text-xs font-medium uppercase tracking-[0.16em]",
@@ -33,42 +33,61 @@ const BUTTON_ACTIVE_STYLES = cn(
   "active:translate-y-0 active:shadow-[0_3px_10px_rgba(187,147,100,0.25)]"
 );
 
+/**
+ * CMIResultFooter
+ * Displays the result summary (visuals + stats) and handles the lead generation funnel (email capture).
+ * Currently mocks the submission process with a "feature under development" feedback state.
+ */
 function CMIResultFooter({ resultData }: Props) {
+  // I18n Namespaces
   const tUi = useTranslations("cmi.ui");
   const tTypes = useTranslations("cmi.types");
   const tFamilies = useTranslations("cmi.families");
+  const tPlaceholder = useTranslations("placeholder");
   const locale = useLocale();
   
+  // Local State
   const [email, setEmail] = useState("");
   const [agreed, setAgreed] = useState(false);
   const [showEmailWarning, setShowEmailWarning] = useState(false);
+  const [showDevMessage, setShowDevMessage] = useState(false);
 
+  // Validation
   const EMAIL_REGEX = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const isEmailValid = EMAIL_REGEX.test(email);
 
+  // Handler: Mock submission logic for MVP
   const handleSubmit = () => {
+    // 1. Validate inputs
     if (!isEmailValid || !agreed) {
       setShowEmailWarning(true);
+      setShowDevMessage(false); // Ensure states don't conflict
       setTimeout(() => setShowEmailWarning(false), 2500);
       return;
     }
 
-    // TODO: Integrate actual API call here
-    console.log("Linking email:", email, "to result ID:", resultData.code);
+    // 2. Mock success feedback (Feature disabled)
+    // TODO: Replace with actual API call to link email with result ID
+    setShowEmailWarning(false);
+    setShowDevMessage(true);
+    
+    // Auto-dismiss dev message after 3s to reset UI state
+    setTimeout(() => setShowDevMessage(false), 3000);
+
+    console.log("[Mock Submit] Linking email:", email, "to result ID:", resultData.code);
   };
 
-  // Date formatting
+  // Data Processing: Date formatting
   const formattedDate = new Date(resultData.createdAt).toLocaleDateString(locale, {
     year: "numeric",
     month: "long",
     day: "numeric"
   });
 
-  // Score normalization helper
+  // Data Processing: Normalize trait scores (handling raw vs. calculated objects)
   const calculateScore = (val: unknown): number => {
     if (typeof val === "number") return Math.round(val);
     
-    // Normalize directional object to 0-100 scale
     if (typeof val === "object" && val !== null && "rawDirection" in val) {
       const obj = val as { rawDirection: number };
       return Math.round(((obj.rawDirection + 1) / 2) * 100);
@@ -83,7 +102,7 @@ function CMIResultFooter({ resultData }: Props) {
     return calculateScore(traitData);
   }).join(" / ");
 
-  // Render helper: Handles string or array descriptions from translation JSON
+  // Helper: Renders polymorphic translation content (string | array)
   const renderDescription = () => {
     const content = tUi.raw("result_footer_desc") as string | string[];
 
@@ -101,9 +120,11 @@ function CMIResultFooter({ resultData }: Props) {
   return (
     <section className="w-full px-4 py-10 flex flex-col items-center gap-12">
       
-      {/* Top Section: Visuals & Stats */}
+      {/* SECTION 1: Visualization & Metadata
+        Displays the app preview image alongside key result metrics.
+      */}
       <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-20 items-center px-4">
-        {/* Visual: App dashboard preview */}
+        {/* Left: Dynamic App Preview */}
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -122,7 +143,7 @@ function CMIResultFooter({ resultData }: Props) {
           </div>
         </motion.div>
 
-        {/* Data: Result Summary */}
+        {/* Right: Technical Stats */}
         <motion.div 
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -153,7 +174,10 @@ function CMIResultFooter({ resultData }: Props) {
         </motion.div>
       </div>
 
-      {/* Bottom Section: Email Capture (Glassmorphism Style) */}
+      {/* SECTION 2: Lead Capture
+        Glassmorphism card for email collection. 
+        Uses "under development" placeholder for current iteration.
+      */}
       <motion.div
         initial={{ opacity: 0, y: 20, scale: 0.98 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -178,10 +202,9 @@ function CMIResultFooter({ resultData }: Props) {
           </div>
         </div>
 
-        {/* Action Area */}
+        {/* Input Form */}
         <div className="w-full max-w-xl flex flex-col gap-6">
           
-          {/* Email Field */}
           <div className="relative w-full group">
             <Input
               id="footer-email"
@@ -201,14 +224,15 @@ function CMIResultFooter({ resultData }: Props) {
             />
           </div>
 
-          {/* Terms Agreement */}
+          {/* Compliance Checkbox */}
+          {/* Layout: items-start ensures checkbox aligns with first line of text on mobile */}
           <div className="flex items-start justify-center gap-2 group text-left px-4">
             <Checkbox
               id="footer-terms"
               checked={agreed}
               onCheckedChange={(c) => setAgreed(c as boolean)}
               className={cn(
-                  "mt-[0.5px] shrink-0",
+                  "mt-[0.5px] shrink-0", // Visual alignment with text-xs line-height
                   "border-white/30 data-[state=checked]:bg-accent data-[state=checked]:text-black data-[state=checked]:border-accent",
                   "h-4 w-4 rounded-xs transition-all duration-200",
                   "group-hover:border-accent/70"
@@ -223,6 +247,7 @@ function CMIResultFooter({ resultData }: Props) {
                 agreed && "text-background/90"
               )}
             >
+               {/* Content flow concatenation to prevent unwanted whitespace/blocks */}
               {tUi("result_footer_agree_pre")}{" "}
               <Link href="/privacy" className="underline underline-offset-2 hover:text-white transition-colors">
                 {tUi("result_footer_privacy")}
@@ -235,7 +260,7 @@ function CMIResultFooter({ resultData }: Props) {
             </Label>
           </div>
 
-          {/* CTA Button */}
+          {/* Action & Feedback Area */}
           <div className="relative flex flex-col items-center w-full">
               <Button
                   onClick={handleSubmit}
@@ -251,13 +276,17 @@ function CMIResultFooter({ resultData }: Props) {
               {tUi("result_footer_cta")}
               </Button>
 
-              {showEmailWarning && (
+              {/* Dynamic Feedback: Warning vs Dev Placeholder */}
+              {(showEmailWarning || showDevMessage) && (
                 <motion.p 
                   initial={{ opacity: 0, y: 2 }}
                   animate={{ opacity: 1, y: 0 }}
+                  key={showEmailWarning ? "warning" : "dev"} 
                   className="absolute top-full mt-5 text-xs text-background/75 tracking-wide whitespace-nowrap translate-y-18"
                 >
-                  {tUi("result_footer_warning")}
+                  {showEmailWarning 
+                    ? tUi("result_footer_warning") 
+                    : tPlaceholder("description")}
                 </motion.p>
               )}
           </div>
