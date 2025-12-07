@@ -174,7 +174,7 @@ function CMIResultHeader({ resultData }: Props) {
             </div>
 
             {/* Test code row: centered code display with copy button and helper tooltip */}
-            <div className="relative flex justify-center slide:font-normal font-semibold text-xs font-mono text-foreground/50 uppercase mb-1">
+            <div className="relative flex justify-center slide:font-normal font-semibold text-xs font-mono text-foreground/50 mb-1">
               {/* Main content that should remain horizontally centered */}
               <div className="flex items-center gap-2">
                 <span>{tUi("result_header_test_code")}</span>
