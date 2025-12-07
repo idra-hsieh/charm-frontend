@@ -15,6 +15,8 @@ export type ResultEmailContent = {
     scores: string;
     footer: string;
     viewReport: string;
+    copyright: string;
+    tagline: string;
   };
   values: {
     date: string;
@@ -91,6 +93,14 @@ export async function buildResultEmailContent({
       "You can revisit your results anytime."
     ),
     viewReport: safe(() => tUi("result_email_view_report"), "View Full Report"),
+    copyright: safe(
+      () => tUi("result_email_copyright"),
+      "©2025 Charm."
+    ),
+    tagline: safe(
+      () => tUi("result_email_tagline"),
+      "Designed with clarity and compassion."
+    ),
   };
 
   const values: ResultEmailContent["values"] = {
