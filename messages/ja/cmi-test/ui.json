@@ -42,6 +42,7 @@
   "result_footer_terms": "利用規約",
   "result_footer_agree_suffix": "に同意します。",
   "result_footer_cta": "テスト結果を保存してアカウントを作成",
+  "result_footer_warning": "Please enter a valid email and agree to terms.",
   "result_footer_label_date": "TEST DATE",
   "result_footer_label_code": "TEST CODE",
   "result_footer_label_type": "RESULT TYPE",

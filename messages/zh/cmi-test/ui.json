@@ -42,6 +42,7 @@
   "result_footer_terms": "服務條款",
   "result_footer_agree_suffix": "。",
   "result_footer_cta": "使用您的測驗結果建立帳戶",
+  "result_footer_warning": "Please enter a valid email and agree to terms.",
   "result_footer_label_date": "TEST DATE",
   "result_footer_label_code": "TEST CODE",
   "result_footer_label_type": "RESULT TYPE",
