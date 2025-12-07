@@ -34,14 +34,17 @@
   "result_trait_desc": "{trait} のスコアは {score} です。",
 
   "result_footer_title": "あなた独自のパターンを発見しました",
-  "result_footer_desc": "多くの人が何年もかけてようやく気づくような「お金の癖」や「パターン」を、あなたは今発見しました。この貴重な気づきを無駄にせず、具体的な行動に変えていきましょう。まずは結果を保存してください。",
+  "result_footer_desc": [
+    "多くの人が何年もかけてようやく気づくパターンを、あなたは今発見しました。",
+    "メール登録で、結果は「初期設定」として自動で引き継がれます。この発見を、今すぐ具体的な行動に変えましょう。"
+  ],
   "result_footer_email_label": "メールアドレス",
-  "result_footer_agree_pre": "Charmの",
+  "result_footer_agree_pre": "Charm の",
   "result_footer_privacy": "プライバシーポリシー",
   "result_footer_and": "および",
   "result_footer_terms": "利用規約",
   "result_footer_agree_suffix": "に同意します。",
-  "result_footer_cta": "結果を保存してアカウント登録",
+  "result_footer_cta": "テスト結果を保存してアカウント登録",
   "result_footer_warning": "有効なメールアドレスを入力し、規約に同意してください。",
   "result_footer_label_date": "診断日",
   "result_footer_label_code": "テストコード",

@@ -34,14 +34,17 @@
   "result_trait_desc": "您的 {trait} 得分為 {score}。",
 
   "result_footer_title": "您剛剛發現了關鍵模式……",
-  "result_footer_desc": "許多人花費數年摸索才能意識到的金錢模式，您剛剛已經發現了。請把握這份難得的清晰時刻——立即儲存結果，將這些洞察轉化為具體的理財架構。",
+  "result_footer_desc": [
+    "許多人耗費數年才釐清的金錢模式，您剛剛已經發現了。",
+    "輸入 Email 建立新帳戶，此結果將自動帶入成為您新帳戶的初始設定，協助您將這份洞察直接轉化為具體的行動。"
+  ],
   "result_footer_email_label": "電子郵件",
   "result_footer_agree_pre": "我同意 Charm 的",
   "result_footer_privacy": "隱私權政策",
   "result_footer_and": "與",
   "result_footer_terms": "服務條款",
   "result_footer_agree_suffix": "。",
-  "result_footer_cta": "儲存結果並建立帳戶",
+  "result_footer_cta": "註冊帳戶並儲存測驗結果",
   "result_footer_warning": "請輸入有效的 Email 並同意服務條款。",
   "result_footer_label_date": "測驗日期",
   "result_footer_label_code": "測驗代碼",
