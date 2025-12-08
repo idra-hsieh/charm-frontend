@@ -19,7 +19,9 @@ COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
 
 # Build the application
-RUN npm run build
+RUN SUPABASE_URL="https://example.supabase.co" \
+    SUPABASE_ANON_KEY="dummy-key" \
+    npm run build
 
 # Stage 3: Production runner (Runner)
 FROM node:20-alpine AS runner
