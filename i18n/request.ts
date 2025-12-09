@@ -1,24 +1,17 @@
-// i18n/request.ts
-import { cookies } from "next/headers";
 import { getRequestConfig } from "next-intl/server";
+import { routing } from "./routing";
 
-const SUPPORTED_LOCALES = ["en", "zh", "ja"] as const;
+const SUPPORTED_LOCALES = ["en", "zh", "ja"] as const; // TO-DO: extend if added
 type Locale = (typeof SUPPORTED_LOCALES)[number];
 
-async function resolveLocale(): Promise<Locale> {
-  const store = await cookies();
-  const cookieLocale = store.get("locale")?.value;
+export default getRequestConfig(async ({ requestLocale }) => {
+  // Try getting locale from Next.js variable (en/zh/ja)
+  let locale = await requestLocale;
 
-  if (cookieLocale && SUPPORTED_LOCALES.includes(cookieLocale as Locale)) {
-    return cookieLocale as Locale;
+  // If doesn't return language, or return un-supported language, back to default (en)
+  if (!locale || !SUPPORTED_LOCALES.includes(locale as Locale)) {
+    locale = routing.defaultLocale || "en";
   }
-
-  return "en";
-}
-
-export default getRequestConfig(async () => {
-  // Decide locale using the cookie pattern from the docs
-  const locale = await resolveLocale();
 
   // Import messages using the dynamic-import pattern from the docs
   // TO-DO: extend if new json added
@@ -41,7 +34,7 @@ export default getRequestConfig(async () => {
       footer,
       placeholder,
       cmi,
-      Metadata: metadata
+      Metadata: metadata,
       // TO-DO: extend if new json added
     },
   };
