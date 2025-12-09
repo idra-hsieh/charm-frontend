@@ -36,6 +36,7 @@ RUN adduser --system --uid 1001 nextjs
 
 # Copy necessary files
 COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/messages ./messages
 
 # Automatically generated standalone folder includes all dependencies
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
