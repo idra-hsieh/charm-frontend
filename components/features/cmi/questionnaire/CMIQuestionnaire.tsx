@@ -62,6 +62,7 @@ function CMIQuestionnaire({ onComplete, onProgressChange }: Props) {
   // State
   const [questions] = useState(() => shuffleArray(QUESTIONS));
   const [subscribe, setSubscribe] = useState(false);
+  const [lastAnsweredIndex, setLastAnsweredIndex] = useState<number | null>(null);
   
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [currentPage, setCurrentPage] = useState(0);
@@ -91,10 +92,21 @@ function CMIQuestionnaire({ onComplete, onProgressChange }: Props) {
 
     // Auto-focus logic relative to the randomized list
     const currentQIndex = questions.findIndex((q) => q.id === qId);
-    if (currentQIndex < questions.length - 1) {
-      setFocusedIndex(currentQIndex + 1);
-    }
+    if (currentQIndex === -1) return;
+    setLastAnsweredIndex(currentQIndex);
   };
+
+  useEffect(() => {
+    if (lastAnsweredIndex === null) return;
+
+    const nextIndex = Math.min(lastAnsweredIndex + 1, questions.length - 1);
+    const shouldAdvance =
+      nextIndex !== lastAnsweredIndex &&
+      answers[questions[nextIndex]?.id] === undefined;
+
+    setFocusedIndex(shouldAdvance ? nextIndex : lastAnsweredIndex);
+    setLastAnsweredIndex(null);
+  }, [answers, lastAnsweredIndex, questions]);
 
   const handleNext = () => {
     if (!isLastPage) {

@@ -6,31 +6,38 @@ import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 interface Props {
-  question: { id: string }; 
+  question: { id: string };
   index: number;
   isFocused: boolean;
   selectedValue?: number;
   onSelect: (val: number) => void;
   onFocus: () => void;
+  autoScroll?: boolean;
 }
 
-function CMIQuestionCard({ 
-  question, index, isFocused, selectedValue, onSelect, onFocus 
+function CMIQuestionCard({
+  question,
+  index,
+  isFocused,
+  selectedValue,
+  onSelect,
+  onFocus,
+  autoScroll = true,
 }: Props) {
   const tQuestions = useTranslations("cmi.questions");
   const tUi = useTranslations("cmi.ui");
-    
+
   const ref = useRef<HTMLDivElement>(null);
 
   // Auto-scroll when focused
   useEffect(() => {
-    if (isFocused && ref.current) {
+    if (autoScroll && isFocused && ref.current) {
       ref.current.scrollIntoView({ behavior: "smooth", block: "center" });
     }
-  }, [isFocused]);
-    
-    const disagreeActive = selectedValue != undefined && selectedValue <= 2;
-    const agreeActive = selectedValue !== undefined && selectedValue >= 4;
+  }, [autoScroll, isFocused]);
+  
+  const disagreeActive = selectedValue != undefined && selectedValue <= 2;
+  const agreeActive = selectedValue !== undefined && selectedValue >= 4;
 
   return (
     <motion.div
