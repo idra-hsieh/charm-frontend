@@ -17,27 +17,38 @@ export default function CMIResultBody({ resultData }: Props) {
   const typeId = resultData.result.type.id;
   const tType = useTranslations(`cmi.types.${typeId}`);
   
-  const [activeSection, setActiveSection] = useState("section-1");
+  const SECTION_IDS = ["section-1", "section-2", "section-3"];
+  const [activeSection, setActiveSection] = useState(SECTION_IDS[0]);
 
   useEffect(() => {
+    const visibility = new Map<string, number>();
+
     const observer = new IntersectionObserver(
       (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        entries.forEach((entry) => {
+          // Track visibility for all sections, including when they leave the viewport
+          visibility.set(entry.target.id, entry.isIntersecting ? entry.intersectionRatio : 0);
+        });
 
-        if (visible[0]?.target?.id) {
-          setActiveSection(visible[0].target.id);
-        }
+        const mostVisible = SECTION_IDS.reduce(
+          (best, id) => {
+            const ratio = visibility.get(id) ?? 0;
+            if (ratio > best.ratio) return { id, ratio };
+            return best;
+          },
+          { id: "", ratio: 0 }
+        );
+
+        if (mostVisible.id) setActiveSection(mostVisible.id);
       },
       {
         root: null,
-        threshold: [0.25, 0.5, 0.75],
+        threshold: [0, 0.25, 0.5, 0.75, 1],
         rootMargin: "-120px 0px -35% 0px", // account for sticky header and bottom viewport
       }
     );
 
-    ["section-1", "section-2", "section-3"].forEach((id) => {
+    SECTION_IDS.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
